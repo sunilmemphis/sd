@@ -1,11 +1,21 @@
-package com.sleepDiary.backend;
+package com.sleepDiary.backend.servlet;
 
 import java.io.IOException;
+
+
+//Servlet Support
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+// log4j logging
+import org.apache.log4j.Logger;
+
+
+
+
 
 /**
  * Servlet implementation class Dispatcher
@@ -13,19 +23,21 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(description = "Recieves packets from mobiles", urlPatterns = { "/Dispatcher" })
 public class Dispatcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	
+	Logger logger;
     /**
      * Default constructor. 
      */
     public Dispatcher() {
-        // TODO Auto-generated constructor stub
+        logger = Logger.getLogger(this.getClass());
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Received");
+		logger.debug("Received");
 	}
 
 	/**
