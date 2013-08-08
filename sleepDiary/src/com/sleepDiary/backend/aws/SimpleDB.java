@@ -5,11 +5,17 @@ package com.sleepDiary.backend.aws;
 
 // Logger class
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 import org.apache.log4j.Logger;
 import org.apache.commons.lang3.RandomStringUtils;
+
+
+
 
 
 // AWS Support Classes
@@ -87,14 +93,14 @@ public class SimpleDB {
 		
 		logger.info("Checking if user "+userName+" exists.");
 		String selectExpression = "select * from `" + userDomain + "` where userName = '"+userName+"'";
-        logger.debug("Selecting: " + selectExpression + "\n");
+        logger.info("Selecting: " + selectExpression + "\n");
         
         SelectRequest selectRequest = new SelectRequest(selectExpression);
         
         if(sdb.select(selectRequest).getItems().isEmpty()) {
-            return DBCodes.USER_EXISTS;
-        } else  {
             return DBCodes.USER_NOT_EXISTS;
+        } else  {
+            return DBCodes.USER_EXISTS;
         } 
 	}
 	
@@ -113,11 +119,12 @@ public class SimpleDB {
         SelectRequest selectRequest = new SelectRequest(selectExpression);
         
         if(sdb.select(selectRequest).getItems().isEmpty()) {
-            return DBCodes.USER_EXISTS;
-        } else  {
             return DBCodes.USER_NOT_EXISTS;
+        } else  {
+            return DBCodes.USER_EXISTS;
         } 
 	}
+	
 	
 	public static boolean isUniqueTokenId(String tokenId) {
 		try {
@@ -151,12 +158,17 @@ public class SimpleDB {
 		}
 		
 		if(tokenId == null ) {
-			tokenId = RandomStringUtils.random(noOfCharactersInToken == 0 ? 10 : noOfCharactersInToken);
+			tokenId = RandomStringUtils.randomAlphanumeric(noOfCharactersInToken == 0 ? 10 : noOfCharactersInToken);
+			while(! isUniqueTokenId(tokenId)) {
+				tokenId = RandomStringUtils.randomAlphanumeric(noOfCharactersInToken == 0 ? 10 : noOfCharactersInToken);
+			}
+		} else {
+			if(!isUniqueTokenId(tokenId)) {
+				return DBCodes.USER_EXISTS;
+			}
 		}
 		
-		while(! isUniqueTokenId(tokenId)) {
-			tokenId = RandomStringUtils.random(noOfCharactersInToken == 0 ? 10 : noOfCharactersInToken);
-		}
+		
 		
 		try {
 			init(userDomain);
@@ -194,20 +206,136 @@ public class SimpleDB {
 		return DBCodes.USER_ADDED;
 	}
 	
-	public static DBCodes enterData(String tokenId, Questionnaire questionnaire) {
+	public static DBCodes enterData(String tokenId, String userName, Questionnaire questionnaire) {
+		try {
+			init(questionnaireDomain);
+		} catch (Exception e) {
+			logger.error(e.toString());
+			return DBCodes.DOMAIN_CREATION_FAILED;
+		}
+		
+		if(tokenId == null || userName == null) {
+			return DBCodes.INVALID_TOKEN;
+		}
+		
+		String Rtoken =  getToken(userName);
+		if(Rtoken ==null || Rtoken.equals(tokenId) )  {
+			return DBCodes.INVALID_TOKEN;
+		}
+		
+		if(questionnaire == null ) {
+			return DBCodes.DATA_CORRUPT;
+		}
+		
+
 		try {
 			init(userDomain);
 		} catch (Exception e) {
 			logger.error(e.toString());
 			return DBCodes.DOMAIN_CREATION_FAILED;
 		}
+		Date currentDate = new Date();
+		
+		List<ReplaceableItem> entity = new ArrayList<ReplaceableItem>();
+		ReplaceableItem replaceableItem = new ReplaceableItem(userName + ":" + currentDate.getTime() );
+		
+		ArrayList<ReplaceableAttribute> rAttributes = new ArrayList<ReplaceableAttribute>();
+		
+		rAttributes.add(new ReplaceableAttribute("Date", currentDate.toGMTString(), true));
+		rAttributes.add(new ReplaceableAttribute("Routine", questionnaire.getRoutine(), true));
+		
+		ArrayList<String> answers = questionnaire.getAnswers() ;
 		
 		
+		
+		for(int answerIndex = 0 ; answerIndex < answers.size(); answerIndex++) {
+			String ans = (new Integer(answerIndex)).toString();
+			rAttributes.add(new ReplaceableAttribute(ans, answers.get(answerIndex), true));
+			
+		}
+		
+		entity.add(replaceableItem);
+		
+		try {
+			// Put data into a domain
+            logger.info("Putting data into " + questionnaireDomain + " domain."+userName+"\n");
+            sdb.batchPutAttributes(new BatchPutAttributesRequest(questionnaireDomain, entity));
+
+		} catch (AmazonServiceException ase ) {
+			printException(ase);
+            return DBCodes.USER_NOT_ADDED;
+        } catch (AmazonClientException ase ) {
+            printException(ase);
+            return DBCodes.USER_NOT_ADDED;
+        } 
 		
 		
 		return null;
 		
 		
+	}
+	
+	public static String getToken(String userName) {
+		try {
+			init(userDomain);
+		} catch (Exception e) {
+			logger.error(e.toString());
+			return "";
+		}
+		logger.info("Checking password for user "+userName+" exists.");
+		String selectExpression = "select * from `" + userDomain + "` where userName = '"+userName+"'";
+        logger.debug("Selecting: " + selectExpression + "\n");
+        boolean autenticated = false;
+        SelectRequest selectRequest = new SelectRequest(selectExpression);
+        for (Item item : sdb.select(selectRequest).getItems()) {
+        	if(item.getName() !=null && item.getName().equalsIgnoreCase(userName)) {
+        		List<Attribute> att = item.getAttributes();
+        		if(att.size() != 3) {
+        			logger.error("Record in DB is corrupted ");
+        			return "";
+        		}
+        		
+        		if(att.get(1).getValue() !=null && att.get(1).getValue().equalsIgnoreCase(userName)) {
+        			logger.info("User autenticated");
+            		return att.get(0).getValue();
+        		}
+        	}
+        	return "";
+        }
+		return "";
+		
+	}
+	
+	public static boolean passwordValid(String userName,String password) {
+		try {
+			init(userDomain);
+		} catch (Exception e) {
+			logger.error(e.toString());
+			return false;
+		}
+		logger.info("Checking password for user "+userName+" exists.");
+		String selectExpression = "select * from `" + userDomain + "` where userName = '"+userName+"'";
+        logger.debug("Selecting: " + selectExpression + "\n");
+        boolean autenticated = false;
+        SelectRequest selectRequest = new SelectRequest(selectExpression);
+        for (Item item : sdb.select(selectRequest).getItems()) {
+        	if(item.getName() !=null && item.getName().equalsIgnoreCase(userName)) {
+        		List<Attribute> att = item.getAttributes();
+        		if(att.size() != 3) {
+        			logger.error("Record in DB is corrupted ");
+        			return false;
+        		}
+        		
+        		if(att.get(1).getValue() !=null && att.get(1).getValue().equals(userName) && 
+        		   att.get(2).getValue() !=null && att.get(2).getValue().equals(password)) {
+        			logger.debug("User autenticated");
+            		return true;
+        		}
+        	}
+        	logger.debug("User autenticatication failed");
+    		return false;
+        }
+		return false;
 	}
 	
 	public static void testPrintData() {

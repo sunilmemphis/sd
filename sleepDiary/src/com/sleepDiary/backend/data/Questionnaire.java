@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Questionnaire {
 	
 	int version;
+	String routine;
 	public ArrayList<String> answers ;
 	
 	public Questionnaire(int version) {
@@ -23,6 +24,15 @@ public class Questionnaire {
 	
 	public void addAnswers(String answer) {
 		answers.add(answer);
+	}
+
+	public String getRoutine() {
+		return routine;
+	}
+
+	public ArrayList<String> getAnswers() {
+		
+		return answers;
 	}
 	
 	

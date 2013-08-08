@@ -25,40 +25,65 @@ public class TestSimpleDB extends TestCase {
 	}
 
 	public void testUserExists() {
+		SimpleDB.createUser("user1", "pass1", "rte", 0);
 		assertTrue(SimpleDB.userExists("user1") == DBCodes.USER_EXISTS);
 	}
 
 	public void testTokenIdExists() {
+		SimpleDB.createUser("user1", "pass1", "rte", 0);
 		assertTrue(SimpleDB.tokenIdExists("rte") == DBCodes.USER_EXISTS);
 		
 	}
 
 	public void testIsUniqueTokenId() {
+		SimpleDB.createUser("user1", "pass1", "rte", 0);
 		assertTrue(SimpleDB.isUniqueTokenId("rte") == false);
 		assertTrue(SimpleDB.isUniqueTokenId("thisIsNotUsedAsAToken"));
 		
 	}
 
 	public void testCreateUser() {
-		String randomUserName = RandomStringUtils.random(5);
-		//SimpleDB.createUser("user1", "pass1", null, 0);
+		
+		SimpleDB.createUser("user1", "pass1", "rte", 0);
 		SimpleDB.testPrintData();
 		
 		assertTrue(SimpleDB.createUser("user1", "pass1", null, 0) == DBCodes.USER_EXISTS);
-		System.err.println("user"+RandomStringUtils.random(5));
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.random(5), "pass1", null, 0) == DBCodes.USER_ADDED);
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.random(5), "pass1", "rte", 10) == DBCodes.USER_ADDED);
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.random(5), "pass1", "rte", 10) == DBCodes.USER_EXISTS);
+		
+		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1", null, 0) == DBCodes.USER_ADDED);
+		String tokenId = "rte";
+		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1", tokenId+RandomStringUtils.randomAlphanumeric(5), 10) == DBCodes.USER_ADDED);
+		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1", tokenId, 10) == DBCodes.USER_EXISTS);
 		
 		SimpleDB.testPrintData();
 	}
 	
 	public void testEnterData() {
-		fail("Not yet implemented");
+		
 	}
 
 	public void testTestPrintData() {
 		SimpleDB.testPrintData();
+	}
+	
+	public void testpasswordValid() {
+		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.testPrintData();
+		assertTrue(SimpleDB.passwordValid("user1", "pass1") );
+		assertFalse(SimpleDB.passwordValid("user1", "pass12") );
+		assertFalse(SimpleDB.passwordValid(null, "pass12") );
+		assertFalse(SimpleDB.passwordValid("user1", null) );
+		assertFalse(SimpleDB.passwordValid(null, null) );
+	}
+	
+	public void testgetToken() {
+		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.testPrintData();
+		System.out.println(SimpleDB.getToken("user1"));
+		assertTrue(SimpleDB.getToken("user1").equals("rte"));
+		assertFalse(SimpleDB.getToken("user31").equals("rte"));
+		assertFalse(SimpleDB.getToken("user1").equals("rt2e"));
+		assertFalse(SimpleDB.getToken(null).equals("rte"));
+		assertFalse(SimpleDB.getToken("user31").equals(null));
 	}
 
 }
