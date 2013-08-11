@@ -5,21 +5,12 @@ package com.sleepDiary.backend.aws;
 
 // Logger class
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
-import org.apache.log4j.Logger;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.log4j.Logger;
 
-
-
-
-
-// AWS Support Classes
-import com.amazonaws.ClientConfiguration;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
@@ -30,15 +21,13 @@ import com.amazonaws.services.simpledb.AmazonSimpleDBClient;
 import com.amazonaws.services.simpledb.model.Attribute;
 import com.amazonaws.services.simpledb.model.BatchPutAttributesRequest;
 import com.amazonaws.services.simpledb.model.CreateDomainRequest;
-import com.amazonaws.services.simpledb.model.DeleteAttributesRequest;
-import com.amazonaws.services.simpledb.model.DeleteDomainRequest;
 import com.amazonaws.services.simpledb.model.Item;
-import com.amazonaws.services.simpledb.model.PutAttributesRequest;
 import com.amazonaws.services.simpledb.model.ReplaceableAttribute;
 import com.amazonaws.services.simpledb.model.ReplaceableItem;
 import com.amazonaws.services.simpledb.model.SelectRequest;
 import com.sleepDiary.backend.data.Questionnaire;
 import com.sleepDiary.backend.statusCodes.DBCodes;
+// AWS Support Classes
 
 /**
  * @author sunil
@@ -338,6 +327,8 @@ public class SimpleDB {
 		return false;
 	}
 	
+	
+	// For testing only
 	public static void testPrintData() {
 		try {
 			init(userDomain);
