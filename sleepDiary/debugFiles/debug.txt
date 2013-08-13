@@ -990,3 +990,1410 @@
 2013-08-07 13:29:43 INFO  SimpleDB:257 - Checking password for user null exists.
 2013-08-07 13:29:43 INFO  SimpleDB:257 - Checking password for user user1 exists.
 2013-08-07 13:29:43 INFO  SimpleDB:257 - Checking password for user null exists.
+2013-08-12 20:23:55 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 20:24:01 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:02 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:02 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:02 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:02 INFO  SimpleDB:126 - Checking if tokenID:  thisIsNotUsedAsAToken is unique
+2013-08-12 20:24:02 INFO  SimpleDB:133 - TokenID:  thisIsNotUsedAsAToken is unique, proceeding ... 
+2013-08-12 20:24:02 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 20:24:02 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:02 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:03 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 20:24:03 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:03 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:03 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:03 INFO  SimpleDB:351 - 
+
+2013-08-12 20:24:03 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 20:24:03 INFO  SimpleDB:288 - User autenticated
+2013-08-12 20:24:03 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 20:24:03 INFO  SimpleDB:288 - User autenticated
+2013-08-12 20:24:03 INFO  SimpleDB:274 - Checking password for user user31 exists.
+2013-08-12 20:24:05 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 20:24:05 INFO  SimpleDB:288 - User autenticated
+2013-08-12 20:24:05 INFO  SimpleDB:274 - Checking password for user null exists.
+2013-08-12 20:24:06 INFO  SimpleDB:274 - Checking password for user user31 exists.
+2013-08-12 20:24:06 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 20:24:06 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:06 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:06 INFO  SimpleDB:104 - Checking if user rte exists.
+2013-08-12 20:24:06 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 20:24:08 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:08 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:08 INFO  SimpleDB:83 - Checking if user user1 exists.
+2013-08-12 20:24:08 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'user1'
+
+2013-08-12 20:24:08 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 20:24:10 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:10 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:10 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 20:24:10 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:10 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:10 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:10 INFO  SimpleDB:351 - 
+
+2013-08-12 20:24:10 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 20:24:10 INFO  SimpleDB:126 - Checking if tokenID:  OM0DsXX3jA is unique
+2013-08-12 20:24:10 INFO  SimpleDB:133 - TokenID:  OM0DsXX3jA is unique, proceeding ... 
+2013-08-12 20:24:10 INFO  SimpleDB:83 - Checking if user user1 exists.
+2013-08-12 20:24:10 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'user1'
+
+2013-08-12 20:24:11 ERROR SimpleDB:170 - User Already exists
+2013-08-12 20:24:11 INFO  SimpleDB:142 - Creating user :userL03Et
+2013-08-12 20:24:11 INFO  SimpleDB:126 - Checking if tokenID:  N0NtIMqkeR is unique
+2013-08-12 20:24:11 INFO  SimpleDB:133 - TokenID:  N0NtIMqkeR is unique, proceeding ... 
+2013-08-12 20:24:11 INFO  SimpleDB:83 - Checking if user userL03Et exists.
+2013-08-12 20:24:11 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'userL03Et'
+
+2013-08-12 20:24:11 INFO  SimpleDB:183 - Putting data into SleepDiaryUsers domain.userL03Et
+
+2013-08-12 20:24:11 INFO  SimpleDB:142 - Creating user :user6lpWL
+2013-08-12 20:24:11 INFO  SimpleDB:126 - Checking if tokenID:  rte0JNgp is unique
+2013-08-12 20:24:12 INFO  SimpleDB:133 - TokenID:  rte0JNgp is unique, proceeding ... 
+2013-08-12 20:24:12 INFO  SimpleDB:83 - Checking if user user6lpWL exists.
+2013-08-12 20:24:12 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'user6lpWL'
+
+2013-08-12 20:24:12 INFO  SimpleDB:183 - Putting data into SleepDiaryUsers domain.user6lpWL
+
+2013-08-12 20:24:12 INFO  SimpleDB:142 - Creating user :userTPXgx
+2013-08-12 20:24:12 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:13 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:351 - 
+
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:13 INFO  SimpleDB:344 -     Name: user6lpWL
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: rte0JNgp
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: user6lpWL
+2013-08-12 20:24:13 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:13 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:13 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:13 INFO  SimpleDB:351 - 
+
+2013-08-12 20:24:13 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 20:24:13 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 20:24:13 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:343 -   Item
+2013-08-12 20:24:14 INFO  SimpleDB:344 -     Name: user6lpWL
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: rte0JNgp
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: user6lpWL
+2013-08-12 20:24:14 INFO  SimpleDB:346 -       Attribute
+2013-08-12 20:24:14 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 20:24:14 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 20:24:14 INFO  SimpleDB:351 - 
+
+2013-08-12 20:24:14 INFO  SimpleDB:305 - Checking password for user user1 exists.
+2013-08-12 20:24:14 INFO  SimpleDB:305 - Checking password for user user1 exists.
+2013-08-12 20:24:14 INFO  SimpleDB:305 - Checking password for user null exists.
+2013-08-12 20:24:15 INFO  SimpleDB:305 - Checking password for user user1 exists.
+2013-08-12 20:24:15 INFO  SimpleDB:305 - Checking password for user null exists.
+2013-08-12 20:30:38 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 20:30:38 INFO  SimpleDB:288 - User autenticated
+2013-08-12 21:03:58 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 21:04:04 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:04 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:04 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:04 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:04 INFO  SimpleDB:126 - Checking if tokenID:  thisIsNotUsedAsAToken is unique
+2013-08-12 21:04:04 INFO  SimpleDB:133 - TokenID:  thisIsNotUsedAsAToken is unique, proceeding ... 
+2013-08-12 21:04:04 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 21:04:04 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:04 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:05 INFO  SimpleDB:344 -     Name: user6lpWL
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: rte0JNgp
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: user6lpWL
+2013-08-12 21:04:05 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:05 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:05 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:05 INFO  SimpleDB:351 - 
+
+2013-08-12 21:04:05 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 21:04:05 INFO  SimpleDB:288 - User autenticated
+2013-08-12 21:04:05 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 21:04:05 INFO  SimpleDB:288 - User autenticated
+2013-08-12 21:04:05 INFO  SimpleDB:274 - Checking password for user user31 exists.
+2013-08-12 21:04:06 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 21:04:06 INFO  SimpleDB:288 - User autenticated
+2013-08-12 21:04:06 INFO  SimpleDB:274 - Checking password for user null exists.
+2013-08-12 21:04:06 INFO  SimpleDB:274 - Checking password for user user31 exists.
+2013-08-12 21:04:06 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 21:04:06 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:06 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:07 INFO  SimpleDB:104 - Checking if user rte exists.
+2013-08-12 21:04:07 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 21:04:07 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:07 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:07 INFO  SimpleDB:83 - Checking if user user1 exists.
+2013-08-12 21:04:07 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'user1'
+
+2013-08-12 21:04:07 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 21:04:07 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:07 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:08 INFO  SimpleDB:344 -     Name: user6lpWL
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: rte0JNgp
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: user6lpWL
+2013-08-12 21:04:08 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:08 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:08 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:08 INFO  SimpleDB:351 - 
+
+2013-08-12 21:04:08 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 21:04:08 INFO  SimpleDB:126 - Checking if tokenID:  aIodB6zQmS is unique
+2013-08-12 21:04:08 INFO  SimpleDB:133 - TokenID:  aIodB6zQmS is unique, proceeding ... 
+2013-08-12 21:04:08 INFO  SimpleDB:83 - Checking if user user1 exists.
+2013-08-12 21:04:08 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'user1'
+
+2013-08-12 21:04:08 ERROR SimpleDB:170 - User Already exists
+2013-08-12 21:04:08 INFO  SimpleDB:142 - Creating user :user7luHX
+2013-08-12 21:04:08 INFO  SimpleDB:126 - Checking if tokenID:  xKX3fB5Tsn is unique
+2013-08-12 21:04:08 INFO  SimpleDB:133 - TokenID:  xKX3fB5Tsn is unique, proceeding ... 
+2013-08-12 21:04:09 INFO  SimpleDB:83 - Checking if user user7luHX exists.
+2013-08-12 21:04:09 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'user7luHX'
+
+2013-08-12 21:04:09 INFO  SimpleDB:183 - Putting data into SleepDiaryUsers domain.user7luHX
+
+2013-08-12 21:04:10 INFO  SimpleDB:142 - Creating user :userHXOdf
+2013-08-12 21:04:10 INFO  SimpleDB:126 - Checking if tokenID:  rteW21B0 is unique
+2013-08-12 21:04:10 INFO  SimpleDB:133 - TokenID:  rteW21B0 is unique, proceeding ... 
+2013-08-12 21:04:10 INFO  SimpleDB:83 - Checking if user userHXOdf exists.
+2013-08-12 21:04:10 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'userHXOdf'
+
+2013-08-12 21:04:10 INFO  SimpleDB:183 - Putting data into SleepDiaryUsers domain.userHXOdf
+
+2013-08-12 21:04:11 INFO  SimpleDB:142 - Creating user :usermbk2J
+2013-08-12 21:04:11 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:11 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: user6lpWL
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: rte0JNgp
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: user6lpWL
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:11 INFO  SimpleDB:344 -     Name: user7luHX
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: xKX3fB5Tsn
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: user7luHX
+2013-08-12 21:04:11 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:11 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:11 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:11 INFO  SimpleDB:351 - 
+
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user6lpWL
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rte0JNgp
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user6lpWL
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user7luHX
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: xKX3fB5Tsn
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user7luHX
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userHXOdf
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteW21B0
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userHXOdf
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:351 - 
+
+2013-08-12 21:04:12 INFO  SimpleDB:142 - Creating user :user1
+2013-08-12 21:04:12 INFO  SimpleDB:126 - Checking if tokenID:  rte is unique
+2013-08-12 21:04:12 INFO  SimpleDB:136 - TokenID:  rte is already present, regenerating token ... 
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user1
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rte
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user1
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userZjfgh
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: taoE1bug1N
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userZjfgh
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userci59N
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rte1TpPj
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userci59N
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userTEkvu
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: y8oKOo81pr
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userTEkvu
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user5OZSz
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteXc7YN
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user5OZSz
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userk31gw
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: p5c4dF14nl
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userk31gw
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userHqihn
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteRvyyX
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userHqihn
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userRjNzc
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: aqtqHpQc6z
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userRjNzc
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: usertIfwE
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteLwJfR
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: usertIfwE
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userL03Et
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: N0NtIMqkeR
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userL03Et
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user6lpWL
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rte0JNgp
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user6lpWL
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: user7luHX
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: xKX3fB5Tsn
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: user7luHX
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:343 -   Item
+2013-08-12 21:04:12 INFO  SimpleDB:344 -     Name: userHXOdf
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  tokenId
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: rteW21B0
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  userName
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: userHXOdf
+2013-08-12 21:04:12 INFO  SimpleDB:346 -       Attribute
+2013-08-12 21:04:12 INFO  SimpleDB:347 -         Name:  password
+2013-08-12 21:04:12 INFO  SimpleDB:348 -         Value: pass1
+2013-08-12 21:04:12 INFO  SimpleDB:351 - 
+
+2013-08-12 21:04:12 INFO  SimpleDB:305 - Checking password for user user1 exists.
+2013-08-12 21:04:12 INFO  SimpleDB:305 - Checking password for user user1 exists.
+2013-08-12 21:04:12 INFO  SimpleDB:305 - Checking password for user null exists.
+2013-08-12 21:04:13 INFO  SimpleDB:305 - Checking password for user user1 exists.
+2013-08-12 21:04:13 INFO  SimpleDB:305 - Checking password for user null exists.
+2013-08-12 21:04:15 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 21:04:15 INFO  SimpleDB:288 - User autenticated
+2013-08-12 21:05:14 INFO  SimpleDB:274 - Checking password for user user1 exists.
+2013-08-12 21:05:14 INFO  SimpleDB:288 - User autenticated
+2013-08-12 21:06:48 INFO  SimpleDB:277 - Checking password for user user1 exists.
+2013-08-12 21:06:49 INFO  SimpleDB:291 - User autenticated
+2013-08-12 21:06:49 INFO  SimpleDB:253 - Putting data into SleepDiaryData domain.user1
+
+2013-08-12 21:06:49 ERROR SimpleDB:359 - Caught an AmazonServiceException, which means your request made it to Amazon SimpleDB, but was rejected with an error response for some reason.
+2013-08-12 21:06:49 ERROR SimpleDB:361 - Error Message:    No attributes for item ='user1:1376356009602'
+2013-08-12 21:08:18 INFO  SimpleDB:277 - Checking password for user user1 exists.
+2013-08-12 21:08:19 INFO  SimpleDB:291 - User autenticated
+2013-08-12 21:08:19 INFO  SimpleDB:253 - Putting data into SleepDiaryData domain.user1
+
+2013-08-12 21:08:19 ERROR SimpleDB:359 - Caught an AmazonServiceException, which means your request made it to Amazon SimpleDB, but was rejected with an error response for some reason.
+2013-08-12 21:08:19 ERROR SimpleDB:361 - Error Message:    Attribute.Value missing for Attribute.Name='Routine'
+2013-08-12 21:18:38 INFO  SimpleDB:277 - Checking password for user user1 exists.
+2013-08-12 21:18:38 INFO  SimpleDB:291 - User autenticated
+2013-08-12 21:18:38 INFO  SimpleDB:253 - Putting data into SleepDiaryData domain.user1
+
+2013-08-12 21:19:17 INFO  SimpleDB:277 - Checking password for user user1 exists.
+2013-08-12 21:19:18 INFO  SimpleDB:291 - User autenticated
+2013-08-12 21:19:18 INFO  SimpleDB:277 - Checking password for user user1 exists.
+2013-08-12 21:19:18 INFO  SimpleDB:291 - User autenticated
+2013-08-12 21:19:18 INFO  SimpleDB:253 - Putting data into SleepDiaryData domain.user1
+
+2013-08-13 00:45:30 INFO  Dispatcher:103 - In processRequest : Recv data from 1
+Morning
+Answer1
+Answer2
+Answer3
+2013-08-13 00:45:37 INFO  SimpleDB:277 - Checking password for user null exists.
+2013-08-13 00:49:06 INFO  Dispatcher:103 - In processRequest : Recv data from 1
+Morning
+Answer1
+Answer2
+Answer3
+2013-08-13 00:49:13 INFO  SimpleDB:277 - Checking password for user user1 exists.
+2013-08-13 00:49:13 INFO  SimpleDB:291 - User autenticated
+2013-08-13 00:49:13 INFO  SimpleDB:277 - Checking password for user user1 exists.
+2013-08-13 00:49:13 INFO  SimpleDB:291 - User autenticated
+2013-08-13 00:49:13 INFO  SimpleDB:253 - Putting data into SleepDiaryData domain.user1
+

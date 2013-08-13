@@ -76,22 +76,42 @@ public class Dispatcher extends HttpServlet {
 	}
 
 	private void returnStatus(HttpServletResponse response, Packet packet) {
-		// TODO Auto-generated method stubtrue
+		try {
+			response.setStatus(200);
+			
+			response.setHeader("statusCode", packet.getStatusString());
+			response.flushBuffer();
+			
+		} catch (IOException e) {
+		
+			e.printStackTrace();
+		}
 		
 	}
 
 	private boolean processRequest(HttpServletRequest request,
 			HttpServletResponse response, Packet packet) {
 		try {
-			String data = this.getBody(request);
+			String data;
+			
+			//Remove this , as the data will be sent through the data body only
+			if(request.getHeader("data") != null ) {
+				data = request.getHeader("data");
+			} else {
+				data = this.getBody(request);
+			}
+			logger.info("In processRequest : Recv data from "+ data);
 			// TODO: decrypt the data
 			String userName = request.getHeader("userName");
 			if(userName == null) {
 				packet.setStatusCode(statusCodes.DATA_RESEND , "Data is Corrupted");
 				return false;
+			} else {
+				packet.setUserName(userName);
 			}
 			packet.setData(data);
 			if(packet.writeToDB()) {
+				packet.setStatusCode(statusCodes.DATA_ADDED , "Data was added");
 				return true;
 			} else {
 				packet.setStatusCode(statusCodes.DATA_RESEND , "Data could not be written into the DB");
@@ -99,7 +119,7 @@ public class Dispatcher extends HttpServlet {
 			
 		} catch (IOException e) {
 			logger.debug("Error reading the data packet from "+ request.getRemoteHost());
-			packet.setStatusCode(statusCodes.DATA_RESEND , "Data is Corrupted");
+			
 			return false;
 		}
 		
@@ -157,11 +177,11 @@ public class Dispatcher extends HttpServlet {
 
 	private boolean checkHeaders(HttpServletRequest request, Packet packet) {
 		// Check for content headers
-		if(request.getHeader("userName") ==null && request.getHeader("TypeOfData") ==null ) {
+		if(request.getHeader("userName") == null && request.getHeader("TypeOfData") == null ) {
 			packet.setStatusCode(statusCodes.DATA_CORRUPT,"Data packet is corrupt");
 			return false;
 		} else {
-			return false;
+			return true;
 		}
 	}
 

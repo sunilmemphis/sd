@@ -204,15 +204,18 @@ public class SimpleDB {
 		}
 		
 		if(tokenId == null || userName == null) {
+			logger.debug("tokenid or userName is missing");
 			return DBCodes.INVALID_TOKEN;
 		}
 		
 		String Rtoken =  getToken(userName);
-		if(Rtoken ==null || Rtoken.equals(tokenId) )  {
+		if(Rtoken == null || !Rtoken.equals(tokenId) )  {
+			logger.debug("TokenId doesnt match");
 			return DBCodes.INVALID_TOKEN;
 		}
 		
 		if(questionnaire == null ) {
+			logger.debug("Questionnaire is empty");
 			return DBCodes.DATA_CORRUPT;
 		}
 		
@@ -242,7 +245,7 @@ public class SimpleDB {
 			rAttributes.add(new ReplaceableAttribute(ans, answers.get(answerIndex), true));
 			
 		}
-		
+		replaceableItem.setAttributes(rAttributes);
 		entity.add(replaceableItem);
 		
 		try {
@@ -259,7 +262,7 @@ public class SimpleDB {
         } 
 		
 		
-		return null;
+		return DBCodes.DATA_ADDED;
 		
 		
 	}

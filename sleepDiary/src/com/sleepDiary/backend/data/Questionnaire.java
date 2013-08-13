@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Questionnaire {
 	
 	int version;
-	String routine;
+	public String routine;
 	public ArrayList<String> answers ;
 	
 	public Questionnaire(int version) {

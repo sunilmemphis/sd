@@ -3,6 +3,8 @@ package test.sleepDiary.backend;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import com.sleepDiary.backend.aws.SimpleDB;
+import com.sleepDiary.backend.data.Packet;
+import com.sleepDiary.backend.data.Questionnaire;
 import com.sleepDiary.backend.statusCodes.DBCodes;
 
 import junit.framework.TestCase;
@@ -84,6 +86,17 @@ public class TestSimpleDB extends TestCase {
 		assertFalse(SimpleDB.getToken("user1").equals("rt2e"));
 		assertFalse(SimpleDB.getToken(null).equals("rte"));
 		assertFalse(SimpleDB.getToken("user31").equals(null));
+	}
+	
+	public void testwriteToDB() {
+		String data = "1 \n answer1 \n answer2 \n answer3";
+		String userName = "user1";
+		Questionnaire q = new Questionnaire(1);
+		q.routine = "Evening";
+		q.addAnswers("answer 1");
+		q.addAnswers("answer 2");
+		
+		assertTrue(SimpleDB.enterData("rte", "user1", q) == DBCodes.DATA_ADDED); 
 	}
 
 }
