@@ -1,0 +1,145 @@
+local storyboard = require ( "storyboard" )
+
+--Create a storyboard scene for this module
+local scene = storyboard.newScene()
+
+--Create the scene
+function scene:createScene( event )
+	local clock = scene.view
+--Create the clock
+	
+	local background = display.newImage( "assets/wallpaper.jpg" )
+	clock:insert( background, true)
+	background.isFullResolution = true
+	
+	-- Set the rotation point to the center of the screen
+	clock:setReferencePoint( display.CenterReferencePoint )
+	
+	-- Create dynamic textfields
+	local contentwidth = display.actualContentWidth;
+	
+	local hourField = display.newText( "", 0, 0, native.systemFontBold, 70 )
+	hourField:setTextColor( 255, 255, 255, 60 )
+	clock:insert( hourField, true )
+	hourField.x = 0* contentwidth/3 + 70 ; hourField.y = 90; 
+	
+	local minuteField = display.newText( "", 0, 0, native.systemFontBold, 70)
+	minuteField:setTextColor( 255, 255, 255, 70 )
+	clock:insert( minuteField, true )
+	minuteField.x = 1*contentwidth/3 + 70; minuteField.y = 90; 
+	
+	local secondField = display.newText( "", 0, 0, native.systemFontBold, 40)
+	secondField:setTextColor( 255, 255, 255, 70 )
+	clock:insert( secondField, true )
+	secondField.x = 2*contentwidth/3 + 70; secondField.y = 90;
+	
+	local function updateTime()
+		local time = os.date("*t")
+		
+		local hourText = time.hour
+		if (hourText < 10) then hourText = "0" .. hourText end
+		hourField.text = hourText .. ":"
+		
+		local minuteText = time.min
+		if (minuteText < 10) then minuteText = "0" .. minuteText end
+		minuteField.text = minuteText .. ":"
+		
+		local secondText = time.sec
+		if (secondText < 10) then secondText = "0" .. secondText end
+		secondField.text = secondText
+	end
+	
+	updateTime() -- run once on startup, so correct time displays immediately
+	
+	
+	-- Update the clock once per second
+	local clockTimer = timer.performWithDelay( 1000, updateTime, -1 )
+	
+	
+	-- Use accelerometer to rotate display automatically
+	local function onOrientationChange( event )
+	
+		-- Adapt text layout to current orientation	
+		local direction = event.type
+	
+		if ( direction == "landscapeLeft" or direction == "landscapeRight" ) then
+			hourField.y = 120
+			secondField.y = 360
+			hourLabel.y = 130
+			secondLabel.y = 370
+		elseif ( direction == "portrait" or direction == "portraitUpsideDown" ) then
+			hourField.y = 90
+			secondField.y = 390
+			hourLabel.y = 100
+			secondLabel.y = 400
+		end
+	
+		-- Rotate clock so it remains upright
+		local newAngle = clock.rotation - event.delta
+		transition.to( clock, { time=150, rotation=newAngle } )	
+	end
+	
+	Runtime:addEventListener( "orientation", onOrientationChange )
+	
+	
+-- Create the buttons
+	local widget = require( "widget" )
+	widget.setTheme( "widget_theme_ios" )
+	
+	--Event handlers
+	local button1Press = function( event )
+		local options =
+			{
+			    effect = "fromLeft",
+			    time = 1000,
+			}
+		storyboard.gotoScene( "dataEntry", options);
+	end
+	
+
+	--Definition
+	local button1_enterData = widget.newButton
+	{
+		--defaultFile = "assets/buttonRed.png",
+		--overFile = "assets/buttonRedOver.png",
+		label = "Enter Data",
+		emboss = true,
+		onPress = button1Press,
+		onRelease = button1Press,
+	}
+	clock:insert(button1_enterData);
+	--Positioning
+	button1_enterData.x = 160; button1_enterData.y = 260
+	
+	local button2_viewPreviousDetails = widget.newButton
+	{
+		--defaultFile = "assets/buttonRed.png",
+		--overFile = "assets/buttonRedOver.png",
+		label = "View Previous",
+		emboss = true,
+		onPress = button1Press,
+		onRelease = button1Press,
+	}
+	clock:insert(button2_viewPreviousDetails);
+	--Positioning
+	button1.x = 160; button1.y = 260
+	
+	local button1 = widget.newButton
+	{
+		--defaultFile = "assets/buttonRed.png",
+		--overFile = "assets/buttonRedOver.png",
+		label = "Enter Data",
+		emboss = true,
+		onPress = button1Press,
+		onRelease = button1Press,
+	}
+	clock:insert(button1);
+	--Positioning
+	button1.x = 160; button1.y = 260
+
+end
+
+--Add the createScene listener
+scene:addEventListener( "createScene", scene )
+
+return scene
