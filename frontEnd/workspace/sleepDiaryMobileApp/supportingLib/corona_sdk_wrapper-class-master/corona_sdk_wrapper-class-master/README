@@ -1,0 +1,4 @@
+There are two main usages of the module:
+
+1. You can wrap any text to a desired width -> the height will be appointed automatically.
+2. You can wrap any text to a desired width and height -> the font-size will be appointed automatically.

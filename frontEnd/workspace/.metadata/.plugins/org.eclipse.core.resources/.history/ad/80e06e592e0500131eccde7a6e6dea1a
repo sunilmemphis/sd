@@ -1,0 +1,7 @@
+
+local function main()
+	local xml = require( "xml" ).newParser()
+	local data = xml:loadFile( "data2.xml")
+
+end
+main()

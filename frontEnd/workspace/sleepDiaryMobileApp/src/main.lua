@@ -48,4 +48,4 @@ local demoTabs = widget.newTabBar
 demoTabs.isVisible = false;
 
 
-storyboard.gotoScene( "homePage");
+storyboard.gotoScene( "register");

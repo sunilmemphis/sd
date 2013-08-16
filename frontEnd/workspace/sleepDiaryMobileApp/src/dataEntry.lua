@@ -76,6 +76,8 @@ function scene:createScene( event )
     	height = 40,
 	}
 	
+	group:insert(backButton,true)
+	
 end
 
 --Add the createScene listener

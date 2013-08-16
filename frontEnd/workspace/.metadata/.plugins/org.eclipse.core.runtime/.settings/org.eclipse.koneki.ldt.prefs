@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
 org.eclipse.dltk.core.codeComplete.visibilityCheck=enabled
+org.eclipse.dltk.coretasks.tags=FIXME;HIGH,TODO;NORMAL,XXX;NORMAL

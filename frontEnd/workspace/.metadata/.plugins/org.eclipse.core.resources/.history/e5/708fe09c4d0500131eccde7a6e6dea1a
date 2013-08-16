@@ -1,0 +1,32 @@
+<questionnaire version="1" noOfQuestions="6" >
+ <question>
+	<text>Question number1</text>	
+	<answerType>text</answerType>
+	<answerRange>1-10</answerRange>
+</question>
+ <question>
+	<text>Question number2</text>	
+	<answerType>text</answerType>
+	<answerRange>1-10</answerRange>
+</question>
+ <question>
+	<text>Question number3</text>	
+	<answerType>range</answerType>
+	<answerRange>1-10</answerRange>
+</question>
+ <question>
+	<text>Question number4</text>	
+	<answerType>text</answerType>
+	<answerRange>1-10</answerRange>
+</question>
+ <question>
+	<text>Question number5</text>	
+	<answerType>text</answerType>
+	<answerRange>1-10</answerRange>
+</question>
+ <question>
+	<text>Question number6</text>	
+	<answerType>text</answerType>
+	<answerRange>1-10</answerRange>
+</question>
+</questionnaire>

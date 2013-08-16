@@ -1,0 +1,7 @@
+
+local function main()
+	local xml = require("xmlSimple").newParser()
+	xml:loadFile("data2.xml", "")
+	print (xml.questionnaire.version:value());
+end
+main()

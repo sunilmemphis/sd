@@ -1,0 +1,70 @@
+local storyboard = require ( "storyboard" )
+require "sqlite3"
+
+
+
+--Open data.db.  If the file doesn't exist it will be created
+local path = system.pathForFile("data2.db", system.DocumentsDirectory)
+db = sqlite3.open( path )   
+
+local function printDB(db) 
+	for row in db:nrows("SELECT * FROM user") do
+	  	local text = row.time.." has<<< "..row.content.."<< "..row.written
+		print("Start Record")
+		print(text)
+		print("Record")
+	end
+end
+
+local buttonHandlerSubmit = function( event )
+	print (event.name);
+	
+	--Create database
+	local tablesetup = [[CREATE TABLE IF NOT EXISTS user (time INTEGER PRIMARY KEY, userName);]]
+	print(tablesetup)
+	db:exec( tablesetup )
+	--Write into database
+	print(os.time());
+	
+	local fals = "F"
+	
+	local tablefill =[[INSERT INTO data VALUES (]]..os.time()..[[, ']]..answerString..[[', ']]..fals..[[');]]
+	--print(tablefill)
+	db:exec( tablefill )
+	--Close database
+	
+	--For testing
+	printDB(db);
+	
+	--Send data through POST
+	
+	local headers = {}
+
+	headers["userName"] = "user1"
+	headers["data"] = answerString
+	headers["TypeOfData"] = "data"
+	local body = "color=red&size=small"
+
+	local params = {}
+	params.headers = headers
+	params.body = body
+	
+	network.request( "http://127.0.0.1/Dispatcher", "POST", networkListener, params)
+	
+end
+
+
+--Create a storyboard scene for this module
+local scene = storyboard.newScene()
+
+--Create the scene
+function scene:createScene( event )
+	local group = self.view
+	
+
+end
+
+--Add the createScene listener
+scene:addEventListener( "createScene", scene )
+
+return scene

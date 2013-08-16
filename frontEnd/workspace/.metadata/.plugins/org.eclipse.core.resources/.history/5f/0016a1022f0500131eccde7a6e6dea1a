@@ -1,0 +1,17 @@
+
+local function main()
+	local xml = require( "xml" ).newParser()
+	local questionnaire = xml:loadFile( "data2.xml")
+	print(questionnaire.properties["version"])
+	
+	local noOfQuestions = (questionnaire.properties["noOfQuestions"])
+	local intno = noOfQuestions + 0
+	i = 1
+	while i  <= intno do
+		 print (question[i])
+		 i = i + 1
+	end
+	
+	
+end
+main()

@@ -1,0 +1,7 @@
+
+local function main()
+	local xml = require("xmlSimple").newParser()
+	xml:loadFile("data2.xml", "C:\Users\Sunil\Documents\GitHub\sd\frontEnd\workspace\ScratchPad\src")
+	print (xml:children()[1]:name());
+end
+main()

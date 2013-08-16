@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;/sleepDiaryMobileApp/src/assets/wallpaperEjpg.jpg&apos; to &apos;wallpaperE.jpg&apos;&#x0D;&#x0A;- Original element: &apos;wallpaperEjpg.jpg&apos;" description="Rename resource &apos;wallpaperEjpg.jpg&apos;" flags="7" id="org.eclipse.dltk.ui.rename.resource" input="src/assets/wallpaperEjpg.jpg" name="wallpaperE.jpg" stamp="1376521660711" version="1.0"/>
+</session>
