@@ -7,6 +7,7 @@ local Wrapper = require("wrapper")
 --Create a storyboard scene for this module
 local scene = storyboard.newScene()
 local answerString;
+local answer = {};
 
 require "sqlite3"
 --Open data.db.  If the file doesn't exist it will be created
@@ -24,7 +25,11 @@ end
 
 local buttonHandlerSubmit = function( event )
 	print (event.name..answerString);
-	
+	 for i = 1,table.getn(answer) do
+	 	if answer[i] then
+	 		answerString = answerString .. answer[i].text.."\n";
+	 	end
+	 end
 	--Create database
 	local tablesetup = [[CREATE TABLE IF NOT EXISTS data (time INTEGER PRIMARY KEY, content,written);]]
 	print(tablesetup)
@@ -70,7 +75,7 @@ local function networkListener( event )
  
         end
         printDB();
-        
+        storyboard.gotoScene("homePage","fromRight");
         
 end
 
@@ -174,11 +179,13 @@ function scene:createScene( event )
     answerString = questionnaire.properties["version"] .. "\n";
 	local i = 1
 	local y = 50
-	local answer = {};
+	
 	local type = {};
 	while i  <= intNoOfQuestions do
 		 --print (questionnaire.child[i].child[1].value)
-		 answerString = answerString .. questionnaire.child[i].child[1].value .. "\n";
+		 
+-- Was Used for testing only
+		 --answerString = answerString .. questionnaire.child[i].child[1].value .. "\n";
 		 local screenText = Wrapper:newParagraph({
 			--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
 			text = questionnaire.child[i].child[1].value,
@@ -204,12 +211,12 @@ function scene:createScene( event )
 		 y = y+10
 		 
 		 answer[i] = native.newTextBox( 40, y + 20, 240, 30 )
-		 
-		 answer[i].hasBackground = false
+		 answer[i].fontSize = 14
+		 answer[i].hasBackground = true
 		 answer[i].size = 16
 		 answer[i].isEditable = true
 		 
-		 scrollView:insert(answer[i])
+		 scrollView:insert(answer[i],true)
 		 y = y+30
 		 
 		 i = i + 1
