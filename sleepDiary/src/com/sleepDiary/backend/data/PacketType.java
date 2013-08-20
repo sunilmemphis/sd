@@ -1,0 +1,13 @@
+package com.sleepDiary.backend.data;
+
+public enum PacketType {
+	DATA_REGISTRATION,
+	DATA_REGISTRATION_FAILED,
+	DATA_REGISTRATION_SUCCESS,
+	EVENING_ROUTINE,
+	MORNING_ROUTINE,
+	DATA_ACK,
+	OTHERS,
+	
+
+}
