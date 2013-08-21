@@ -79,7 +79,7 @@ public class Dispatcher extends HttpServlet {
 		try {
 			response.setStatus(200);
 			
-			response.setHeader("statusCode", packet.getStatusString());
+			response.setHeader("statusCode", "Success");
 			response.flushBuffer();
 			
 		} catch (IOException e) {

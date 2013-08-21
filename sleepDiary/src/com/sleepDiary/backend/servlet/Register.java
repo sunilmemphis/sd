@@ -15,6 +15,7 @@ import org.apache.log4j.Logger;
 
 import com.sleepDiary.backend.aws.SimpleDB;
 import com.sleepDiary.backend.data.Packet;
+import com.sleepDiary.backend.data.PacketType;
 import com.sleepDiary.backend.data.statusCodes;
 import com.sleepDiary.backend.statusCodes.DBCodes;
 
@@ -34,6 +35,7 @@ public class Register extends HttpServlet {
     }
     
     private void returnStatus(HttpServletResponse response, Packet packet) {
+    	logger.error("Sending success Code");
 		try {
 			response.setStatus(200);
 			
@@ -53,21 +55,28 @@ public class Register extends HttpServlet {
 			// TODO: decrypt the data
 			String userName = request.getHeader("userName");
 			String password = request.getHeader("password");
-			logger.info("In processRequest : Recv userName from "+ userName);
+			SimpleDB.createUser(userName, password, null , 10);
+			logger.info("In processRequest : Recv userName from "+ userName+ " : " + password);
+			logger.info("Random");
 			if(userName == null) {
 				packet.setStatusCode(statusCodes.DATA_RESEND , "Data is Corrupted");
+				logger.info("In processRequest: Recieved NULL as the userName");
 				return false;
 			} else {
 				if(SimpleDB.createUser(userName, password, null , 10) == DBCodes.USER_ADDED) {
 					packet.setStatusCode(statusCodes.DATA_ADDED , "User was added");
+					logger.info("In processRequest : UserName "+ userName + " added to AWS");
+					
 					return true;
 				} else {
 					packet.setStatusCode(statusCodes.DATA_RESEND , "Data could not be written into the DB");
+					logger.info("In processRequest : UserName  "+ userName + " could not be added to AWS");
+					return false;
 				}
-				;
+				
 			}
 			
-		return false;
+		
 	}
 	
 	public String getBody(HttpServletRequest request) throws IOException {
@@ -105,10 +114,16 @@ public class Register extends HttpServlet {
 	}
 
 	private void returnErrorMsg(HttpServletResponse response, Packet packet) {
+
+		logger.error("Sending error Code");
 		try {
-			response.setStatus(200);
+			response.setStatus(300);
 			
 			response.setHeader("statusCode", packet.getStatusString());
+			
+			if(packet.getStatusCode() == statusCodes.DATA_RESEND) {
+				response.setStatus(301);
+			}
 			response.flushBuffer();
 			
 		} catch (IOException e) {
@@ -133,13 +148,15 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Packet packet = new Packet();
-		returnErrorMsg(response,packet);
+		//returnErrorMsg(response,packet);
 		if(checkHeaders(request,packet) == false ) {
+			logger.error("Headers are wrong");
 			returnErrorMsg(response,packet);
 		} else {
 			if (processRequest(request,response,packet)) {
 				returnStatus(response,packet);
 			} else {
+				logger.error("Adding to AWS failed");
 				returnErrorMsg(response,packet);
 			}
 		}

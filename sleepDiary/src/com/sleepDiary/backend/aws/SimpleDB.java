@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
@@ -36,7 +37,7 @@ import com.sleepDiary.backend.statusCodes.DBCodes;
 public class SimpleDB {
 	
 	static AmazonSimpleDB sdb;
-	
+	static BasicAWSCredentials awsCred;
 	static Logger logger = Logger.getLogger(SimpleDB.class);
 	
 	static String userDomain = "SleepDiaryUsers";
@@ -47,8 +48,10 @@ public class SimpleDB {
 	}
 	
 	private static void init(String myDomain) throws Exception {
+		awsCred = new BasicAWSCredentials("AKIAJF6QNXP5NMSQYDRA","c/NyMNAqETzxbisglz6CgHAbFzAyIcNUWB2ANKSP");
 		if(sdb == null) {
-			sdb = new AmazonSimpleDBClient(new ClasspathPropertiesFileCredentialsProvider());
+			//sdb = new AmazonSimpleDBClient(new ClasspathPropertiesFileCredentialsProvider());
+			sdb = new AmazonSimpleDBClient(awsCred);
 			Region usEast1 = Region.getRegion(Regions.US_EAST_1);
 			sdb.setRegion(usEast1);
 		}
