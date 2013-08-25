@@ -1,85 +1,45 @@
 package com.sleepDiary.backend.servlet;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
-
-
-
-
-
-
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-
-//Servlet Support
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
-
-
-
-
-// log4j logging
 import org.apache.log4j.Logger;
 
-import com.sleepDiary.backend.crypt.Crypt;
+import com.sleepDiary.backend.aws.SimpleDB;
 import com.sleepDiary.backend.data.Packet;
+import com.sleepDiary.backend.data.PacketType;
 import com.sleepDiary.backend.data.statusCodes;
-
-
-
-
+import com.sleepDiary.backend.statusCodes.DBCodes;
 
 /**
- * Servlet implementation class Dispatcher
+ * Servlet implementation class Register
  */
-@WebServlet(description = "Recieves packets from mobiles", urlPatterns = { "/Dispatcher" })
-public class Dispatcher extends HttpServlet {
+@WebServlet(description = "Used for user registration", urlPatterns = { "/Register" })
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
-	Logger logger;
+    Logger logger = Logger.getLogger("Register"); 
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public Dispatcher() {
-        logger = Logger.getLogger(this.getClass());
+    public Register() {
+        super();
+        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Packet packet = new Packet();
-		returnErrorMsg(response,packet);
-		if(checkHeaders(request,packet) == false ) {
-			returnErrorMsg(response,packet);
-		} else {
-			if (processRequest(request,response,packet)) {
-				returnStatus(response,packet);
-			} else {
-				returnErrorMsg(response,packet);
-			}
-		}
-		
-		
-		
-		
-	}
-
-	private void returnStatus(HttpServletResponse response, Packet packet) {
+    
+    private void returnStatus(HttpServletResponse response, Packet packet) {
+    	logger.error("Sending success Code");
 		try {
 			response.setStatus(200);
 			
-			response.setHeader("statusCode", "Success");
+			response.setHeader("statusCode", packet.getStatusString());
 			response.flushBuffer();
 			
 		} catch (IOException e) {
@@ -91,40 +51,32 @@ public class Dispatcher extends HttpServlet {
 
 	private boolean processRequest(HttpServletRequest request,
 			HttpServletResponse response, Packet packet) {
-		try {
-			String data;
-			
-			//Remove this , as the data will be sent through the data body only
-			if(request.getHeader("data") != null ) {
-				data = request.getHeader("data");
-			} else {
-				data = this.getBody(request);
-			}
-			logger.info("In processRequest : Recv data from "+ data);
+	
 			// TODO: decrypt the data
 			String userName = request.getHeader("userName");
+			String password = request.getHeader("password");
+			SimpleDB.createUser(userName, password, null , 10);
+			logger.info("In processRequest : Recv userName from "+ userName+ " : " + password);
+			logger.info("Random");
 			if(userName == null) {
 				packet.setStatusCode(statusCodes.DATA_RESEND , "Data is Corrupted");
+				logger.info("In processRequest: Recieved NULL as the userName");
 				return false;
 			} else {
-				packet.setUserName(userName);
-			}
-			packet.setData(data);
-			if(packet.writeToDB()) {
-				packet.setStatusCode(statusCodes.DATA_ADDED , "Data was added");
-				return true;
-			} else {
-				packet.setStatusCode(statusCodes.DATA_RESEND , "Data could not be written into the DB");
+				if(SimpleDB.createUser(userName, password, null , 10) == DBCodes.USER_ADDED) {
+					packet.setStatusCode(statusCodes.DATA_ADDED , "User was added");
+					logger.info("In processRequest : UserName "+ userName + " added to AWS");
+					
+					return true;
+				} else {
+					packet.setStatusCode(statusCodes.DATA_RESEND , "Data could not be written into the DB");
+					logger.info("In processRequest : UserName  "+ userName + " could not be added to AWS");
+					return false;
+				}
+				
 			}
 			
-		} catch (IOException e) {
-			logger.debug("Error reading the data packet from "+ request.getRemoteHost());
-			
-			return false;
-		}
 		
-		
-		return false;
 	}
 	
 	public String getBody(HttpServletRequest request) throws IOException {
@@ -162,10 +114,16 @@ public class Dispatcher extends HttpServlet {
 	}
 
 	private void returnErrorMsg(HttpServletResponse response, Packet packet) {
+
+		logger.error("Sending error Code");
 		try {
-			response.setStatus(200);
+			response.setStatus(300);
 			
 			response.setHeader("statusCode", packet.getStatusString());
+			
+			if(packet.getStatusCode() == statusCodes.DATA_RESEND) {
+				response.setStatus(301);
+			}
 			response.flushBuffer();
 			
 		} catch (IOException e) {
@@ -177,7 +135,7 @@ public class Dispatcher extends HttpServlet {
 
 	private boolean checkHeaders(HttpServletRequest request, Packet packet) {
 		// Check for content headers
-		if(request.getHeader("userName") == null && request.getHeader("TypeOfData") == null ) {
+		if(request.getHeader("userName") == null || request.getHeader("TypeOfData") == null ) {
 			packet.setStatusCode(statusCodes.DATA_CORRUPT,"Data packet is corrupt");
 			return false;
 		} else {
@@ -190,13 +148,15 @@ public class Dispatcher extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Packet packet = new Packet();
-		returnErrorMsg(response,packet);
+		//returnErrorMsg(response,packet);
 		if(checkHeaders(request,packet) == false ) {
+			logger.error("Headers are wrong");
 			returnErrorMsg(response,packet);
 		} else {
 			if (processRequest(request,response,packet)) {
 				returnStatus(response,packet);
 			} else {
+				logger.error("Adding to AWS failed");
 				returnErrorMsg(response,packet);
 			}
 		}

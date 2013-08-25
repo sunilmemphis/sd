@@ -8,6 +8,7 @@ package com.sleepDiary.backend.crypt;
  * <h2> Encryption </h2>
  * 
  * Token based en/decryption for data that is being sent from the user
+ * or use openSSL
  * 
  */
 

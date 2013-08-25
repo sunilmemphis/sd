@@ -2397,3 +2397,12 @@ Answer3
 2013-08-13 00:49:13 INFO  SimpleDB:291 - User autenticated
 2013-08-13 00:49:13 INFO  SimpleDB:253 - Putting data into SleepDiaryData domain.user1
 
+2013-08-19 22:51:27 INFO  Register:56 - In processRequest : Recv userName from user123
+2013-08-19 22:51:27 INFO  SimpleDB:142 - Creating user :user123
+2013-08-19 22:51:33 INFO  SimpleDB:126 - Checking if tokenID:  S9inmSpuQx is unique
+2013-08-19 22:51:33 INFO  SimpleDB:133 - TokenID:  S9inmSpuQx is unique, proceeding ... 
+2013-08-19 22:51:33 INFO  SimpleDB:83 - Checking if user user123 exists.
+2013-08-19 22:51:33 INFO  SimpleDB:85 - Selecting: select * from `SleepDiaryUsers` where userName = 'user123'
+
+2013-08-19 22:51:33 INFO  SimpleDB:183 - Putting data into SleepDiaryUsers domain.user123
+
