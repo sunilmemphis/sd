@@ -1,7 +1,0 @@
-
-local function main()
-	local xml = require("xmlSimple").newParser()
-	xml:loadFile("data2", )
-	print (xml.version);
-end
-main()

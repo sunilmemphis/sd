@@ -1,7 +1,0 @@
-local function main()
-	local xml = require("xmlSimple.lua").newParser()
-	xml:loadFile("data2.xml", "./")
-	
-	print (xml.version);
-end
-main()

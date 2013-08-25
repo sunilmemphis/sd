@@ -17,7 +17,7 @@ function sleep(n)  -- seconds
 end
 
 -- Set location for saved data
-local filePath = system.pathForFile( "data24.txt", system.DocumentsDirectory )
+local filePath = system.pathForFile( "data56.txt", system.DocumentsDirectory )
 
 
 --Create a storyboard scene for this module
@@ -67,30 +67,63 @@ local function scrollListener( event )
 		end
 end
 
+local function onCompleteAlertRegister( event )
+	storyboard.gotoScene("register","fromRight");
+end
+
 local function networkListener( event )
- --       if ( event.isError ) then
+ 	       if ( event.isError ) then
                 print( "Network error!")
- --       else
- --               print ( "RESPONSE: " .. event.response )
-                dataTable = {}
-				dataTable["userName"] = answers[1]
-				dataTable["emailId"] =  answers[2]
-				saveData()
-				local userName = display.newText("User registered", 40, y + 40, native.systemFont, 18)
-				print("networkListener>>>>>" .. dataTable["userName"] .. dataTable["emailId"] )
-				scrollView:insert(userName,true);
-				sleep(5)
-				storyboard.gotoScene("homePage","fromLeft");
- --       end
+                
+ 	       else
+ 	            print ( "RESPONSE: " .. event.response )
+ 	            
+ 	            if(event.response == "301" or event.response == "300") then 
+ 	            	local headers = {}
+					headers["userName"] = answers[1]
+					headers["data"] = answers[2]
+					headers["password"] = answers[3]
+					headers["TypeOfData"] = "register"
+					
+					local body = answers[2]
+				    
+				    --Write to remote service
+					local params = {}
+					params.headers = headers
+					params.body = body
+					print("Registration failed !!! ")
+					
+					local alert = native.showAlert( "Sleep eDiary", "Registration failed !!!", { "OK" }, onCompleteAlertRegister )
+					 
+					 y = y+20
+				else 
+					dataTable = {}
+					dataTable["userName"] = answers[1]
+					dataTable["emailId"] =  answers[2]
+					dataTable["tokenId"] = event.response
+					saveData()
+					local userName = display.newText("User registered", 40, y + 40, native.systemFont, 18)
+					print("networkListener>>>>>" .. dataTable["userName"] .. dataTable["emailId"] .. "Return Code " .. event.status)
+					scrollView:insert(userName,true);
+					sleep(5)
+					storyboard.gotoScene("homePage","fromLeft");
+				end
+			 						
+			end
 end
 
 local buttonHandlerSubmit = function( event )
 	local headers = {}
-	answers[1] = "user2"
+	-- To Be removed
+	answers[1] = "userSunil4"
 	answers[2] = "user2@mail.com"
+	answers[3] = "password"
+	-- end
 	headers["userName"] = answers[1]
-	headers["data"] = answers[2]
-	headers["TypeOfData"] = "registration"
+	headers["e-mail"] = answers[2]
+	headers["password"] = answers[3]
+	headers["TypeOfData"] = "register"
+	
 	local body = answers[2]
     
     --Write to remote service
@@ -99,7 +132,7 @@ local buttonHandlerSubmit = function( event )
 	params.body = body
 	print("buttonHandlerSubmit>>>>>" .. answers[1] .. answers[2])
 				
-	network.request( "http://127.0.0.1/Dispatcher", "POST", networkListener, params)
+	network.request( "http://54.221.197.247/sleepDiary/Register", "POST", networkListener, params)
 		 local screenText = Wrapper:newParagraph({
 			--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
 			text = "User is being registered......",
@@ -123,10 +156,53 @@ local buttonHandlerSubmit = function( event )
 		 y = y+screenText.height
 		 
 		 y = y+80
-		 
-	
 end
 
+local buttonHandlerLogin = function( event )
+	local headers = {}
+	-- To Be removed
+	answers[1] = "userSunil4"
+	answers[2] = "user2@mail.com"
+	answers[3] = "password"
+	-- end
+	headers["userName"] = answers[1]
+	headers["e-mail"] = answers[2]
+	headers["password"] = answers[3]
+	headers["TypeOfData"] = "login"
+	
+	local body = answers[2]
+    
+    --Write to remote service
+	local params = {}
+	params.headers = headers
+	params.body = body
+	print("buttonHandlerSubmit>>>>>" .. answers[1] .. answers[2])
+				
+	network.request( "http://54.221.197.247/sleepDiary/Login", "POST", networkListener, params)
+		 local screenText = Wrapper:newParagraph({
+			--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
+			text = "Logging in ......",
+			
+			width = 240,
+			--height = 300, 			-- fontSize will be calculated automatically if set 
+			--font = "helvetica", 	-- make sure the selected font is installed on your system
+			fontSize = 18,			
+			lineSpace = 2,
+			alignment  = "left",
+			
+			-- Parameters for auto font-sizing
+			fontSizeMin = 8,
+			fontSizeMax = 12,
+			incrementSize = 2
+		})
+		
+		screenText.x = 40;
+		screenText.y = y+80;
+		scrollView:insert( screenText )
+		 y = y+screenText.height
+		 
+		 y = y+80
+end
 
 --Create the scene
 function scene:createScene( event )
@@ -215,16 +291,49 @@ function scene:createScene( event )
 		 
 		 answer[1] = native.newTextBox( 40, y + 20, 240, 30 )
 		 
-		 answer[1].hasBackground = false
+		 answer[1].hasBackground = true
 		 answer[1].size = 16
 		 answer[1].isEditable = true
 		 answer[1].fontSize = 14
 		 scrollView:insert(answer[1])
 		 y = y+30
 		 
+		 local passwordText = Wrapper:newParagraph({
+			--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
+			text = "Enter Password",
+			
+			width = 240,
+			--height = 300, 			-- fontSize will be calculated automatically if set 
+			--font = "helvetica", 	-- make sure the selected font is installed on your system
+			fontSize = 18,			
+			lineSpace = 2,
+			alignment  = "left",
+			
+			-- Parameters for auto font-sizing
+			fontSizeMin = 8,
+			fontSizeMax = 12,
+			incrementSize = 2
+		})
+		
+		passwordText.x = 40;
+		passwordText.y = y;
+		scrollView:insert( passwordText )
+		 y = y+passwordText.height
+		 
+		 y = y+10
+		 
+		 answer[3] = native.newTextBox( 40, y + 20, 240, 30 )
+		 
+		 answer[3].hasBackground = true
+		 answer[3].size = 16
+		 answer[3].isEditable = true
+		 answer[3].fontSize = 14
+		 scrollView:insert(answer[3])
+		 y = y+30
+		 
 		 local screenText = Wrapper:newParagraph({
 			--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
-			text = "Enter e-mail",
+			text = "Enter doctor's e-mail",
 			
 			width = 240,
 			--height = 300, 			-- fontSize will be calculated automatically if set 
@@ -248,7 +357,7 @@ function scene:createScene( event )
 		 
 		 answer[2] = native.newTextBox( 40, y + 20, 240, 30 )
 		 
-		 answer[2].hasBackground = false
+		 answer[2].hasBackground = true
 		 answer[2].size = 16
 		 answer[2].isEditable = true
 		 answer[2].fontSize = 14
@@ -273,7 +382,7 @@ function scene:createScene( event )
 	local submitButton  = widget.newButton {
 		id = "submit",
 		defaultFile = "assets/register.png",
-		label = "Submit",
+		label = "",
 		font = "MarkerFelt-Thin",
 		emboss = true,
 		onPress = buttonHandlerSubmit,
@@ -287,7 +396,22 @@ function scene:createScene( event )
 	y = y+80
 	scrollView:insert(submitButton,true)
 	
-
+	local submitButton  = widget.newButton {
+		id = "login",
+		defaultFile = "assets/loginbutton.png",
+		label = "",
+		font = "MarkerFelt-Thin",
+		emboss = true,
+		onPress = buttonHandlerLogin,
+		align = "centre",
+		left = 100,
+    	top = y+80,
+    	width = 100,
+    	height = 100,
+	}
+	 
+	y = y+80
+	scrollView:insert(submitButton,true)
 
 	end
 

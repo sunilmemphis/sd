@@ -1,6 +1,0 @@
-
-local function main()
-	local xml = require( "xml" ).newParser()
-
-end
-main()

@@ -1,7 +1,0 @@
-
-local function main()
-	local xml = require("xmlSimple").newParser()
-	xml:loadFile("data2.xml", system.CurrentDirectory)
-	print (xml:children()[1]:name());
-end
-main()

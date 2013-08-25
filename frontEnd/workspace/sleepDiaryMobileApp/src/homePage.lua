@@ -19,17 +19,17 @@ function scene:createScene( event )
 	local contentwidth = display.actualContentWidth;
 	
 	local hourField = display.newText( "", 0, 0, native.systemFontBold, 70 )
-	hourField:setTextColor( 255, 255, 255, 60 )
+	hourField:setTextColor( 0,0,0, 80 )
 	clock:insert( hourField, true )
 	hourField.x = 0* contentwidth/3 + 70 ; hourField.y = 90; 
 	
 	local minuteField = display.newText( "", 0, 0, native.systemFontBold, 70)
-	minuteField:setTextColor( 255, 255, 255, 70 )
+	minuteField:setTextColor( 0,0,0, 80 )
 	clock:insert( minuteField, true )
 	minuteField.x = 1*contentwidth/3 + 70; minuteField.y = 90; 
 	
 	local secondField = display.newText( "", 0, 0, native.systemFontBold, 40)
-	secondField:setTextColor( 255, 255, 255, 70 )
+	secondField:setTextColor( 0,0,0, 80 )
 	clock:insert( secondField, true )
 	secondField.x = 2*contentwidth/3 + 70; secondField.y = 90;
 	
@@ -100,35 +100,39 @@ function scene:createScene( event )
 	--Definition
 	local button1_enterData = widget.newButton
 	{
-		--defaultFile = "assets/buttonRed.png",
-		--overFile = "assets/buttonRedOver.png",
+		defaultFile = "assets/diaryInit.png",
+		overFile = "assets/diaryPress.png",
 		label = "Enter Data",
 		emboss = true,
 		onPress = button1Press,
+		width = display.contentWidth - 100,
+		height = 80,
 		onRelease = button1Press,
 	}
 	clock:insert(button1_enterData);
 	--Positioning
 	button1_enterData.x = 160; button1_enterData.y = 200
 	
-	local button2_viewPreviousDetails = widget.newButton
-	{
-		--defaultFile = "assets/buttonRed.png",
-		--overFile = "assets/buttonRedOver.png",
-		label = "View Previous",
-		emboss = true,
-		onPress = button1Press,
-		onRelease = button1Press,
-	}
-	clock:insert(button2_viewPreviousDetails);
-	--Positioning
-	button2_viewPreviousDetails.x = 160; button2_viewPreviousDetails.y = 300
+--	local button2_viewPreviousDetails = widget.newButton
+--	{
+--		defaultFile = "assets/diary-hi5.png",
+--		overFile = "assets/diary-hi3.png",	
+--		width = display.contentWidth - 100,
+--		height = 80,
+--		label = "View Previous",
+--		emboss = true,
+--		onPress = button1Press,
+--		onRelease = button1Press,
+--	}
+--	clock:insert(button2_viewPreviousDetails);
+--	--Positioning
+--	button2_viewPreviousDetails.x = 160; button2_viewPreviousDetails.y = 300
 	
 	local button1 = widget.newButton
 	{
 		--defaultFile = "assets/buttonRed.png",
 		--overFile = "assets/buttonRedOver.png",
-		label = "Enter Data",
+		label = "Change preferances",
 		emboss = true,
 		onPress = button1Press,
 		onRelease = button1Press,
