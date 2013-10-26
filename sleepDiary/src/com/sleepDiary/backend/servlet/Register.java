@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +27,7 @@ import com.sleepDiary.backend.statusCodes.DBCodes;
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     Logger logger = Logger.getLogger("Register"); 
+    String userName;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,13 +37,16 @@ public class Register extends HttpServlet {
     }
     
     private void returnStatus(HttpServletResponse response, Packet packet) {
-    	logger.error("Sending success Code");
+    	logger.debug("Sending success Code");
 		try {
 			response.setStatus(200);
 			
-			response.setHeader("statusCode", packet.getStatusString());
-			response.flushBuffer();
+			PrintWriter out = response.getWriter(); 
+			out.println(SimpleDB.getToken(userName)); 
 			
+			//response.flushBuffer();
+			if(out!=null) {out.flush();out.close();}
+			response.flushBuffer();
 		} catch (IOException e) {
 		
 			e.printStackTrace();
@@ -51,29 +56,46 @@ public class Register extends HttpServlet {
 
 	private boolean processRequest(HttpServletRequest request,
 			HttpServletResponse response, Packet packet) {
-	
+			String typeOfData = request.getHeader("typeOfData");
+			
 			// TODO: decrypt the data
-			String userName = request.getHeader("userName");
+			userName = request.getHeader("userName");
 			String password = request.getHeader("password");
-			SimpleDB.createUser(userName, password, null , 10);
+			String email = request.getHeader("e-mail");
+			
+			//SimpleDB.createUser(userName, password,email, null , 10);
 			logger.info("In processRequest : Recv userName from "+ userName+ " : " + password);
-			logger.info("Random");
 			if(userName == null) {
 				packet.setStatusCode(statusCodes.DATA_RESEND , "Data is Corrupted");
 				logger.info("In processRequest: Recieved NULL as the userName");
 				return false;
 			} else {
-				if(SimpleDB.createUser(userName, password, null , 10) == DBCodes.USER_ADDED) {
-					packet.setStatusCode(statusCodes.DATA_ADDED , "User was added");
-					logger.info("In processRequest : UserName "+ userName + " added to AWS");
-					
-					return true;
+				if(typeOfData != null && typeOfData.equalsIgnoreCase("register")) {
+					DBCodes dbcodeCreateUser = SimpleDB.createUser(userName, password,email, null , 10);
+					if(dbcodeCreateUser == DBCodes.USER_ADDED) {
+						packet.setStatusCode(statusCodes.DATA_ADDED , "User was added");
+						logger.info("In processRequest : UserName "+ userName + " added to AWS");
+						
+						return true;
+					} else if (dbcodeCreateUser == DBCodes.USER_EXISTS){
+						packet.setStatusCode(statusCodes.USERNAME_INVALID , "User already exists");
+						logger.info("In processRequest : UserName "+ userName + " already exists in the db.");
+						return false;
+					}
+					else {
+						packet.setStatusCode(statusCodes.DATA_RESEND , "Data could not be written into the DB");
+						logger.info("In processRequest : UserName  "+ userName + " could not be added to AWS");
+						return false;
+					}
+				} else if(typeOfData != null && typeOfData.equalsIgnoreCase("login")) {
+					if(SimpleDB.passwordValid(userName, password)) {
+						return true;
+					} else {
+						return false;
+					}
 				} else {
-					packet.setStatusCode(statusCodes.DATA_RESEND , "Data could not be written into the DB");
-					logger.info("In processRequest : UserName  "+ userName + " could not be added to AWS");
 					return false;
 				}
-				
 			}
 			
 		
@@ -117,13 +139,23 @@ public class Register extends HttpServlet {
 
 		logger.error("Sending error Code");
 		try {
-			response.setStatus(300);
+			
+			int statusCode = packet.getStatusCode().ordinal();
+			
+			response.setStatus(statusCode);
 			
 			response.setHeader("statusCode", packet.getStatusString());
 			
 			if(packet.getStatusCode() == statusCodes.DATA_RESEND) {
 				response.setStatus(301);
 			}
+			
+			if(packet.getStatusCode() == statusCodes.USERNAME_INVALID) {
+				response.setStatus(401);
+			}
+			
+			
+			
 			response.flushBuffer();
 			
 		} catch (IOException e) {

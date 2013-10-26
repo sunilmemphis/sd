@@ -6,6 +6,7 @@ package com.sleepDiary.backend.aws;
 // Logger class
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -42,7 +43,7 @@ public class SimpleDB {
 	
 	static String userDomain = "SleepDiaryUsers";
 	static String questionnaireDomain = "SleepDiaryData";
-	
+	static String researchDomain = "SleepDiaryResearch";
 	public SimpleDB() {
 		
 	}
@@ -141,10 +142,10 @@ public class SimpleDB {
         } 
 	}
 	
-	public static DBCodes createUser(String userName, String password, String tokenId, int noOfCharactersInToken) {
+	public static DBCodes createUser(String userName, String password,String email, String tokenId,  int noOfCharactersInToken) {
 		logger.info("Creating user :" + userName);
 		
-		if(userName == null || password == null) {
+		if(userName == null || password == null || email == null) {
 			logger.error("username or password is null");
 			return DBCodes.USER_NOT_ADDED;
 		}
@@ -178,7 +179,8 @@ public class SimpleDB {
 		entity.add(new ReplaceableItem(userName).withAttributes(
 	                new ReplaceableAttribute("userName", userName, true),
 	                new ReplaceableAttribute("tokenId", tokenId, true),
-	                new ReplaceableAttribute("password", password, true))
+	                new ReplaceableAttribute("password", password, true),
+	                new ReplaceableAttribute("email", email, true))
 	          );
 		
 		try {
@@ -235,7 +237,8 @@ public class SimpleDB {
 		ReplaceableItem replaceableItem = new ReplaceableItem(userName + ":" + currentDate.getTime() );
 		
 		ArrayList<ReplaceableAttribute> rAttributes = new ArrayList<ReplaceableAttribute>();
-		
+		rAttributes.add(new ReplaceableAttribute("userName", userName, true));
+		rAttributes.add(new ReplaceableAttribute("DateTime", (new Long(currentDate.getTime())).toString(), true));
 		rAttributes.add(new ReplaceableAttribute("Date", currentDate.toGMTString(), true));
 		rAttributes.add(new ReplaceableAttribute("Routine", questionnaire.getRoutine(), true));
 		
@@ -333,6 +336,38 @@ public class SimpleDB {
 		return false;
 	}
 	
+	public static boolean researcherPasswordValid(String userName,String password) {
+		try {
+			init(researchDomain);
+		} catch (Exception e) {
+			logger.error(e.toString());
+			return false;
+		}
+		logger.info("Checking password for researcher "+userName+" exists.");
+		String selectExpression = "select * from `" + researchDomain + "` where userName = '"+userName+"'";
+        logger.debug("Selecting: " + selectExpression + "\n");
+        boolean autenticated = false;
+        SelectRequest selectRequest = new SelectRequest(selectExpression);
+        for (Item item : sdb.select(selectRequest).getItems()) {
+        	if(item.getName() !=null && item.getName().equalsIgnoreCase(userName)) {
+        		List<Attribute> att = item.getAttributes();
+        		if(att.size() != 2) {
+        			logger.error("Record in DB is corrupted ");
+        			return false;
+        		}
+        		
+        		if(att.get(0).getValue() !=null && att.get(0).getValue().equals(userName) && 
+        		   att.get(1).getValue() !=null && att.get(1).getValue().equals(password)) {
+        			logger.debug("User autenticated");
+            		return true;
+        		}
+        	}
+        	logger.debug("User autenticatication failed");
+    		return false;
+        }
+		return false;
+	}
+	
 	
 	// For testing only
 	public static void testPrintData() {
@@ -355,6 +390,65 @@ public class SimpleDB {
               }
           }
           logger.info("\n");
+	}
+	
+	public static ArrayList<String> getUserNames() {
+
+		ArrayList<String> userNames = new ArrayList<String>();
+		try {
+			init(userDomain);
+		} catch (Exception e) {
+			logger.error(e.toString());
+		}
+		String myDomain = userDomain;
+		  String selectExpression = "select * from `" + myDomain + "`";
+          logger.debug("Selecting: " + selectExpression + "\n");
+          SelectRequest selectRequest = new SelectRequest(selectExpression);
+          for (Item item : sdb.select(selectRequest).getItems()) {
+              for (Attribute attribute : item.getAttributes()) {
+            	  if(attribute.getName() != null && attribute.getName().equalsIgnoreCase("userName")) {
+            		  logger.info(attribute.getName().toString() +":" + attribute.getValue().toString());
+            		  userNames.add(attribute.getValue().toString());
+            	  }
+              }
+          }
+          logger.info("\n");
+          return userNames;
+	}
+	
+	public static ArrayList<ArrayList<String>> getUserDetails(String userName) {
+
+		ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
+		try {
+			init(userDomain);
+		} catch (Exception e) {
+			logger.error(e.toString());
+		}
+		String myDomain = questionnaireDomain;
+		  String selectExpression = "select * from `" + myDomain + "` where userName = \'" + userName + "\' intersection DateTime is not null order by DateTime desc limit 100";
+          logger.debug("Selecting: " + selectExpression + "\n");
+          SelectRequest selectRequest = new SelectRequest(selectExpression);
+          
+          boolean first = true;
+          
+          for (Item item : sdb.select(selectRequest).getItems()) {
+        	  if(first) {
+        		  ArrayList<String> cols = new ArrayList<String>();
+                  for (Attribute attribute : item.getAttributes()) {
+                	  cols.add(attribute.getName());
+                  }
+                  data.add(cols);
+                  first = false;
+        	  }
+        	  
+        	  ArrayList<String> tuple = new ArrayList<String>();
+              for (Attribute attribute : item.getAttributes()) {
+            	  tuple.add(attribute.getValue());
+              }
+              data.add(tuple);
+          }
+          logger.info("\n");
+          return data;
 	}
 	
 	//Exception Handling

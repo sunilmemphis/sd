@@ -1,5 +1,7 @@
 package test.sleepDiary.backend;
 
+import java.util.ArrayList;
+
 import org.apache.commons.lang3.RandomStringUtils;
 
 import com.sleepDiary.backend.aws.SimpleDB;
@@ -27,18 +29,18 @@ public class TestSimpleDB extends TestCase {
 	}
 
 	public void testUserExists() {
-		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
 		assertTrue(SimpleDB.userExists("user1") == DBCodes.USER_EXISTS);
 	}
 
 	public void testTokenIdExists() {
-		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
 		assertTrue(SimpleDB.tokenIdExists("rte") == DBCodes.USER_EXISTS);
 		
 	}
 
 	public void testIsUniqueTokenId() {
-		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
 		assertTrue(SimpleDB.isUniqueTokenId("rte") == false);
 		assertTrue(SimpleDB.isUniqueTokenId("thisIsNotUsedAsAToken"));
 		
@@ -46,15 +48,15 @@ public class TestSimpleDB extends TestCase {
 
 	public void testCreateUser() {
 		
-		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
 		SimpleDB.testPrintData();
 		
-		assertTrue(SimpleDB.createUser("user1", "pass1", null, 0) == DBCodes.USER_EXISTS);
+		assertTrue(SimpleDB.createUser("user1", "pass1","usr@mail.com", null, 0) == DBCodes.USER_EXISTS);
 		
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1", null, 0) == DBCodes.USER_ADDED);
+		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1","usr@mail.com", null, 0) == DBCodes.USER_ADDED);
 		String tokenId = "rte";
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1", tokenId+RandomStringUtils.randomAlphanumeric(5), 10) == DBCodes.USER_ADDED);
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1", tokenId, 10) == DBCodes.USER_EXISTS);
+		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1","usr@mail.com", tokenId+RandomStringUtils.randomAlphanumeric(5), 10) == DBCodes.USER_ADDED);
+		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1","usr@mail.com", tokenId, 10) == DBCodes.USER_EXISTS);
 		
 		SimpleDB.testPrintData();
 	}
@@ -68,7 +70,7 @@ public class TestSimpleDB extends TestCase {
 	}
 	
 	public void testpasswordValid() {
-		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
 		SimpleDB.testPrintData();
 		assertTrue(SimpleDB.passwordValid("user1", "pass1") );
 		assertFalse(SimpleDB.passwordValid("user1", "pass12") );
@@ -77,8 +79,12 @@ public class TestSimpleDB extends TestCase {
 		assertFalse(SimpleDB.passwordValid(null, null) );
 	}
 	
+	public void testResearchpasswordValid() {
+		assertTrue(SimpleDB.researcherPasswordValid("test", "test") );
+	}
+	
 	public void testgetToken() {
-		SimpleDB.createUser("user1", "pass1", "rte", 0);
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
 		SimpleDB.testPrintData();
 		System.out.println(SimpleDB.getToken("user1"));
 		assertTrue(SimpleDB.getToken("user1").equals("rte"));
@@ -90,13 +96,41 @@ public class TestSimpleDB extends TestCase {
 	
 	public void testwriteToDB() {
 		String data = "1 \n answer1 \n answer2 \n answer3";
-		String userName = "user1";
+		String userName = "testuser4";
 		Questionnaire q = new Questionnaire(1);
 		q.routine = "Evening";
 		q.addAnswers("answer 1");
 		q.addAnswers("answer 2");
 		
-		assertTrue(SimpleDB.enterData("rte", "user1", q) == DBCodes.DATA_ADDED); 
+		assertTrue(SimpleDB.enterData("rte", "testuser4", q) == DBCodes.DATA_ADDED); 
+	}
+	
+	
+	
+	public void testgetUserNames() {
+		ArrayList<String>  userN = SimpleDB.getUserNames();
+		
+		assertFalse(userN == null || userN.isEmpty());
+		
+		for(int i=0;i<userN.size();i++) {
+			System.out.println("User Name :"+userN.get(i).toString());
+		}
+		
+	}
+	
+	public void testgetUserDetails() {
+		ArrayList<ArrayList<String>>  userN = SimpleDB.getUserDetails("testuser4");
+		
+		assertFalse(userN == null || userN.isEmpty());
+		
+		for(int i=0;i<userN.size();i++) {
+			ArrayList<String> tuple = userN.get(i);
+			for(int j=0;j<tuple.size();j++) {
+				System.out.print(tuple.get(j)+" ");
+			}
+			System.out.println("\n");
+		}
+		
 	}
 
 }

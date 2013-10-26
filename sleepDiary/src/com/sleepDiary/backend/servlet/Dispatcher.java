@@ -177,6 +177,7 @@ public class Dispatcher extends HttpServlet {
 
 	private boolean checkHeaders(HttpServletRequest request, Packet packet) {
 		// Check for content headers
+		logger.info("Checking headers ");
 		if(request.getHeader("userName") == null && request.getHeader("TypeOfData") == null ) {
 			packet.setStatusCode(statusCodes.DATA_CORRUPT,"Data packet is corrupt");
 			return false;
@@ -190,13 +191,16 @@ public class Dispatcher extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Packet packet = new Packet();
-		returnErrorMsg(response,packet);
+		//returnErrorMsg(response,packet);
+		logger.info("In Post");
 		if(checkHeaders(request,packet) == false ) {
+			logger.error("Headers are not in place ");
 			returnErrorMsg(response,packet);
 		} else {
 			if (processRequest(request,response,packet)) {
 				returnStatus(response,packet);
 			} else {
+				logger.error("Processing requests failed ");
 				returnErrorMsg(response,packet);
 			}
 		}
