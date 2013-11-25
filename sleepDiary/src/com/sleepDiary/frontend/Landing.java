@@ -85,7 +85,7 @@ public class Landing extends HttpServlet {
 			{
 				pw.print(buildJavascript());
 				pw.print("</head>");
-				pw.print( "<body><div style=\"width: 50%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></body></html>");
+				pw.print( "<body><div style=\"width: 90%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></body></html>");
 			} else {
 				pw.print("</head><body><h2>Invalid UserName and password</h2></body></html>");
 			}
@@ -134,7 +134,7 @@ public class Landing extends HttpServlet {
 		data.append( "function selectHandler() {\n" +
 					 "var selection = table.getSelection();\n" +
 					 "for (var i = 0; i < selection.length; i++) { var item = selection[i]; }\n" +
-					 "alert(\'You selected \' + item.row );\n" +
+					 "alert(\'You selected :\' + item.row );\n" +
 					 "window.location.href = \"http://54.221.197.247/sleepDiary/landing?userName2=\"+item.row;}\n");
 		
 		
@@ -171,9 +171,10 @@ public class Landing extends HttpServlet {
 		String userName = usernames.get(Integ);
 		
 		ArrayList<ArrayList<String>> dataDB = SimpleDB.getUserDetails(userName);
+		// TODO : Modify the dataDB to rearrange the data collected
 		
 		ArrayList<String> cols = dataDB.remove(0);
-		
+	
 		
 //			     "  data.addColumn(\'string\', \'userName\');\n");
 		
