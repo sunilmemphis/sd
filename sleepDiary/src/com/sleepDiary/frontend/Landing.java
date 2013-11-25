@@ -135,7 +135,7 @@ public class Landing extends HttpServlet {
 					 "var selection = table.getSelection();\n" +
 					 "for (var i = 0; i < selection.length; i++) { var item = selection[i]; }\n" +
 					 "alert(\'You selected \' + item.row );\n" +
-					 "window.location.href = \"http://localhost:8080/sleepDiary/landing?userName2=\"+item.row;}\n");
+					 "window.location.href = \"http://54.221.197.247/sleepDiary/landing?userName2=\"+item.row;}\n");
 		
 		
 		data.append("</script>\n");

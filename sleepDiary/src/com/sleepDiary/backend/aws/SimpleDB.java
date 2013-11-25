@@ -212,12 +212,12 @@ public class SimpleDB {
 			logger.debug("tokenid or userName is missing");
 			return DBCodes.INVALID_TOKEN;
 		}
-		
+		/*
 		String Rtoken =  getToken(userName);
 		if(Rtoken == null || !Rtoken.equals(tokenId) )  {
 			logger.debug("TokenId doesnt match");
 			return DBCodes.INVALID_TOKEN;
-		}
+		}*/
 		
 		if(questionnaire == null ) {
 			logger.debug("Questionnaire is empty");
@@ -288,10 +288,6 @@ public class SimpleDB {
         for (Item item : sdb.select(selectRequest).getItems()) {
         	if(item.getName() !=null && item.getName().equalsIgnoreCase(userName)) {
         		List<Attribute> att = item.getAttributes();
-        		if(att.size() != 3) {
-        			logger.error("Record in DB is corrupted ");
-        			return "";
-        		}
         		
         		if(att.get(1).getValue() !=null && att.get(1).getValue().equalsIgnoreCase(userName)) {
         			logger.info("User autenticated");
@@ -319,13 +315,10 @@ public class SimpleDB {
         for (Item item : sdb.select(selectRequest).getItems()) {
         	if(item.getName() !=null && item.getName().equalsIgnoreCase(userName)) {
         		List<Attribute> att = item.getAttributes();
-        		if(att.size() != 3) {
-        			logger.error("Record in DB is corrupted ");
-        			return false;
-        		}
         		
-        		if(att.get(1).getValue() !=null && att.get(1).getValue().equals(userName) && 
-        		   att.get(2).getValue() !=null && att.get(2).getValue().equals(password)) {
+        		
+        		if(att.get(2).getValue() !=null && att.get(2).getValue().equals(userName) && 
+        		   att.get(3).getValue() !=null && att.get(3).getValue().equals(password)) {
         			logger.debug("User autenticated");
             		return true;
         		}
@@ -351,10 +344,7 @@ public class SimpleDB {
         for (Item item : sdb.select(selectRequest).getItems()) {
         	if(item.getName() !=null && item.getName().equalsIgnoreCase(userName)) {
         		List<Attribute> att = item.getAttributes();
-        		if(att.size() != 2) {
-        			logger.error("Record in DB is corrupted ");
-        			return false;
-        		}
+        		
         		
         		if(att.get(0).getValue() !=null && att.get(0).getValue().equals(userName) && 
         		   att.get(1).getValue() !=null && att.get(1).getValue().equals(password)) {

@@ -26,7 +26,7 @@ import com.sleepDiary.backend.statusCodes.DBCodes;
 @WebServlet(description = "Used for user registration", urlPatterns = { "/Register" })
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    Logger logger = Logger.getLogger("Register"); 
+    Logger logger = Logger.getRootLogger(); 
     String userName;
     /**
      * @see HttpServlet#HttpServlet()

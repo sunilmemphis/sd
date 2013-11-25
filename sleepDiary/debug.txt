@@ -10247,3 +10247,13 @@
 2013-10-11 17:39:36 DEBUG headers:275 - >> Content-Length: 223
 2013-10-11 17:39:36 DEBUG headers:275 - >> Connection: Keep-Alive
 2013-10-11 17:39:36 DEBUG wire:86 -  >> "Action=ListDomains&SignatureMethod=HmacSHA256&AWSAccessKeyId=AKIAJF6QNXP5NMSQYDRA&SignatureVersion=2&Version=2009-04-15&Signature=QQuV2sFXc%2BU011%2F%2FWcIr29udDuE89rJI87Ci%2BKSOQcE%3D&Timestamp=2013-10-11T21%3A39%3A36.551Z"
+2013-11-24 19:27:30 INFO  Dispatcher:195 - In Post
+2013-11-24 19:27:30 INFO  Dispatcher:180 - Checking headers 
+2013-11-24 19:27:30 ERROR Dispatcher:197 - Headers are not in place 
+2013-11-24 19:27:30 INFO  Dispatcher:195 - In Post
+2013-11-24 19:27:30 INFO  Dispatcher:180 - Checking headers 
+2013-11-24 19:27:30 INFO  Dispatcher:103 - In processRequest : Recv data from 1
+Morning
+Answer1
+Answer2
+Answer3

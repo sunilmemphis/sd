@@ -54,8 +54,8 @@ public class TestServletDispatcher extends TestCase {
 		 ServletRunner sr = new ServletRunner();
 		 sr.registerServlet( "myServlet", Dispatcher.class.getName() );
 		    ServletUnitClient sc = sr.newClient();
-		    WebRequest request   = new PostMethodWebRequest( "http://localhost.com/myServlet" );
-		    request.setHeaderField("userName", "user1");
+		    WebRequest request   = new PostMethodWebRequest( "http://localhost.com:8080/myServlet" );
+		    request.setHeaderField("userName", "testuser4");
 		    request.setHeaderField("TypeOfData", "data");
 		    request.setHeaderField("data", "1\nMorning\nAnswer1\nAnswer2\nAnswer3");
 		    WebResponse response = null;

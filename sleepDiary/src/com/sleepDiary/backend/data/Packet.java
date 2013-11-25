@@ -81,12 +81,15 @@ public class Packet {
 
 	public boolean writeToDB() {
 		Questionnaire questionnaire = buildQuestionnaire();
+		/*
 		if(tokenId == null) {
 			tokenId = SimpleDB.getToken(userName);
 			if(tokenId == null || tokenId.equals("")) {
 				return false;
 			}
-		}
+		}*/
+		
+		tokenId="123";
 		
 		if(questionnaire != null) {
 			if(SimpleDB.enterData(this.tokenId, this.userName, questionnaire) == DBCodes.DATA_ADDED) {
