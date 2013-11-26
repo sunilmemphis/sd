@@ -205,35 +205,41 @@ public class Landing extends HttpServlet {
 		    
 		
 		}
-		ArrayList<String> cols = dataDB.remove(0);
-	    
 		
-		
-		
-		
-		
-		
-//			     "  data.addColumn(\'string\', \'userName\');\n");
-		
-		for(int i=2;i<cols.size();i++) {
-			data.append("data.addColumn(\'string\', \'"+ cols.get(i)+"\');\n");
-		}
-		
-		for(int i=0;i<dataDB.size();i++) {
-			data.append(" data.addRows([[");
-			ArrayList<String> tuple = dataDB.get(i);
-			for(int j=2;j<tuple.size();j++) {
-				data.append("\'"+tuple.get(j)+"\'");
-				if(j != tuple.size() -1) {
-					data.append(",");
-				}
-			}
-			data.append("]]);\n");
-		}
+		if(dataDB.size() > 0) {
+			ArrayList<String> cols = dataDB.remove(0);
+		    
 			
+			
+			
+			
+			
+			
+	//			     "  data.addColumn(\'string\', \'userName\');\n");
+			
+			for(int i=2;i<cols.size();i++) {
+				data.append("data.addColumn(\'string\', \'"+ cols.get(i)+"\');\n");
+			}
+			
+			for(int i=0;i<dataDB.size();i++) {
+				data.append(" data.addRows([[");
+				ArrayList<String> tuple = dataDB.get(i);
+				for(int j=2;j<tuple.size();j++) {
+					data.append("\'"+tuple.get(j)+"\'");
+					if(j != tuple.size() -1) {
+						data.append(",");
+					}
+				}
+				data.append("]]);\n");
+			}
+		} else {
+			data.append("data.addColumn(\'string\', \'"+ "No records found."+"\');\n");
+		}
+		
 		data.append("table = new google.visualization.Table(document.getElementById(\'table_div\'));\n"  +
         			"table.draw(data, {showRowNumber: true});\n" + 
-        			"google.visualization.events.addListener(table, \'select\', selectHandler);\n" +
+        			"google.visualization.e"
+        			+ "vents.addListener(table, \'select\', selectHandler);\n" +
 					"}\n");
 		
 		
