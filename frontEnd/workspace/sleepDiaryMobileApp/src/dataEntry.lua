@@ -21,7 +21,7 @@ function scene:createScene( event )
 	end
 	
 	local buttonHandlerEvening = function( event )
-		storyboard.gotoScene("screen3","slideUp");
+		storyboard.gotoScene("eveningRoutine","slideUp");
 	end
 	
 	local buttonHandlerBack = function( event )
@@ -29,15 +29,14 @@ function scene:createScene( event )
 	end
 	
 	local widget = require( "widget" )
-	widget.setTheme( "widget_theme_ios" )
-	
+		
 	local eveningButton = widget.newButton {
 		id = "Evening",
 		defaultFile = "assets/night.jpg",
 		overFile = "assets/nightPress.jpg",
 		label = "Evening Routine",
-		left = 75,
-    	top = 200,
+		left = 60,
+    	top = 60,
     	width = 200,
     	height = 200,
 		emboss = true,
@@ -45,6 +44,8 @@ function scene:createScene( event )
 	}	
 	group:insert(eveningButton,true)
 	
+	eveningButton.x = 200
+	eveningButton.y = 300
 	
 	
 	local morningButton = widget.newButton {
@@ -55,8 +56,8 @@ function scene:createScene( event )
 		font = "MarkerFelt-Thin",
 		emboss = true,
 		onPress = buttonHandlerMorning,
-		left = 50,
-    	top = 50,
+		left = 200,
+    	top = 200,
     	width = 200,
     	height = 200,
 	}
@@ -77,14 +78,11 @@ function scene:createScene( event )
 	}
 	
 	group:insert(backButton,true)
-	
+	backButton.x = 280
 end
 
 --Add the createScene listener
 scene:addEventListener( "createScene", scene )
-
-
-
 
 return scene
 

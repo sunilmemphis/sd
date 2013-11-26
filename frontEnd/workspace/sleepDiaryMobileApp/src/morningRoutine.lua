@@ -9,14 +9,15 @@ local str = require("str")
 local scene = storyboard.newScene()
 local answerString;
 local answer = {};
-local filePath = system.pathForFile( "data54.txt", system.DocumentsDirectory )
+local answerValues = {}
+local filePath = system.pathForFile( "data12.txt", system.DocumentsDirectory )
 local dataTableNew = {};
 local scrollView
 
 
 require "sqlite3"
 --Open data.db.  If the file doesn't exist it will be created
-local path = system.pathForFile("data2.db", system.DocumentsDirectory)
+local path = system.pathForFile("data10.db", system.DocumentsDirectory)
 db = sqlite3.open( path )   
 
 local function printDB(db) 
@@ -33,37 +34,60 @@ local function onCompleteAlert( event )
 	
 end
 
+local function doNothin( event )
+	
+	
+end
+
+
 local function onCompleteAlertRegister( event )
 	storyboard.gotoScene("register","fromRight");
 end
 
 
+local function onCompleteAlertFieldsNotFilled( event )
+	native.setKeyboardFocus(answer[i])
+end
 
 local function networkListener1( event )
 		print("in Nw Listener")
-        if ( event.isError ) then
-                print( "Network error!")
+        if ( event.isError and not(event.status == 200)  ) then
+        	print( "Network error!")
+            local alert = native.showAlert( "Sleep eDiary", "Network Error. Try again later" .. event.status, { "OK" }, onCompleteAlert)
+            return
         else
                 print ( "RESPONSE: " .. event.response )
-                
                 local tableUpdate = [[UPDATE data SET written=T]]
                 db:exec( tableUpdate )
- 
+ 				local alert = native.showAlert( "Sleep eDiary", "Data sent" .. event.status, { "OK" }, onCompleteAlert )
         end
         
-        
+        print(">>>"..answerString)
         local alert = native.showAlert( "Sleep eDiary", "Diary entry added !", { "OK" }, onCompleteAlert )
         
 end
 
 
+
+
 local buttonHandlerSubmit = function( event )
 	print (event.name..answerString);
-	 for i = 1,table.getn(answer) do
-	 	if answer[i] then
-	 		answerString = answerString .. answer[i].text.."\n";
-	 	end
-	 end
+	
+	
+	
+	--  for i = 1,table.getn(answer) do
+	--  	if answer[i] then
+	--  		if answer[i].text == '' then
+	--  	 		answerString = '';
+	-- 	 		local alert = native.showAlert( "Sleep eDiary", "Kindly fill in all the fields.", { "OK" }, onCompleteAlertFieldsNotFilled )
+	-- 			native.setKeyboardFocus(answer[i])
+	-- 			return
+	-- 		else
+	--  			answerString = answerString .. answer[i].text .."\n"
+	--  			print("in button : ".. answerString)
+	--  		end
+	--  	end
+	-- end
 	--Create database
 	local tablesetup = [[CREATE TABLE IF NOT EXISTS data (time INTEGER PRIMARY KEY, content,written);]]
 	print(tablesetup)
@@ -222,7 +246,7 @@ function scene:createScene( event )
 		end
 		
 	    answerString = questionnaire.properties["version"] .. "\n";
-	    answerString = "morning" .. "\n";
+	    answerString = "1\nmorning" .. "\n";
 		local i = 1
 		local y = 50
 		
@@ -231,7 +255,7 @@ function scene:createScene( event )
 			 --print (questionnaire.child[i].child[1].value)
 			 
 	-- Was Used for testing only
-			 answerString = answerString .. questionnaire.child[i].child[1].value .. "\n";
+			 --answerString = answerString .. questionnaire.child[i].child[1].value .. "\n";
 			 local screenText = Wrapper:newParagraph({
 				--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
 				text = questionnaire.child[i].child[1].value,
@@ -261,7 +285,11 @@ function scene:createScene( event )
 			 answer[i].hasBackground = true
 			 answer[i].size = 16
 			 answer[i].isEditable = true
-			 
+			 --answer[i].text = "Answer "..i
+			 answerString = answerString ..i.."~".. questionnaire.child[i].child[1].value .."\n"
+			 answerString = answerString ..i.."~".. i.."\n"
+			 print("in answer: "..answer[i].text)
+			 --
 			 scrollView:insert(answer[i],true)
 			 y = y+30
 			 
