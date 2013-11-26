@@ -3,7 +3,7 @@ local storyboard = require ( "storyboard" )
 --Create a storyboard scene for this module
 local scene = storyboard.newScene()
 
---Create the scene
+--Create the sceneset
 function scene:createScene( event )
 	local clock = scene.view
 --Create the clock
@@ -14,7 +14,6 @@ function scene:createScene( event )
 	
 	-- Set the rotation point to the center of the screen
 	clock:setReferencePoint( display.CenterReferencePoint )
-	
 	-- Create dynamic textfields
 	local contentwidth = display.actualContentWidth;
 	
@@ -95,6 +94,22 @@ function scene:createScene( event )
 			}
 		storyboard.gotoScene( "dataEntry", options);
 	end
+
+	local onCompleteAlert = function(event) 
+		os.exit()
+		--native.requestExit()
+	end
+
+	local button2Press = function( event )
+		local destDir = system.DocumentsDirectory  -- where the file is stored
+		local results, reason = os.remove( system.pathForFile( "data12.txt", system.DocumentsDirectory ))
+		if results then
+			local alert = native.showAlert( "Sleep eDiary", "Logged out. ", { "OK" }, onCompleteAlert)
+   			print( "file removed" )
+		else
+   			print( "file does not exist", reason )
+		end
+	end
 	
 
 	--Definition
@@ -132,10 +147,10 @@ function scene:createScene( event )
 	{
 		--defaultFile = "assets/buttonRed.png",
 		--overFile = "assets/buttonRedOver.png",
-		label = "Change preferances",
+		label = "Logout",
 		emboss = true,
-		onPress = button1Press,
-		onRelease = button1Press,
+		onPress = button2Press,
+		onRelease = button2Press,
 	}
 	clock:insert(button1);
 	--Positioning
