@@ -3,6 +3,8 @@ package com.sleepDiary.frontend;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,14 +49,15 @@ public class Landing extends HttpServlet {
 			{
 				pw.print(buildJavascript());
 				pw.print("</head>");
-				pw.print( "<body><div style=\"width: 50%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></body></html>");
+				pw.print( "<body bgcolor=\"#000003\" align=\"center\"><div style=\"width: 100%; overflow: auto; border: 1px solid #000;background-color:#0003;opacity:1;\" align=\"center\"> <div style=\"width: 50%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></div></body></html>");
 			
 				session.setAttribute("userName", request.getParameter("username"));
 				session.setAttribute("password", request.getParameter("password"));
 			
 			
 			} else {
-				pw.print("</head><body><h2>Invalid UserName and password</h2></body></html>");
+				pw.print(buildWebPage("Invalid Username and / or password . "));
+				//pw.print("</head><body><h2>Invalid UserName and password</h2></body></html>");
 			}
 			
 			
@@ -62,10 +65,11 @@ public class Landing extends HttpServlet {
 		} else if (session.getAttribute("userName") != null && session.getAttribute("password")!=null ) {
 			pw.print(buildJavascript(request.getParameter("userName2")));
 			pw.print("</head>");
-			pw.print( "<body><div style=\"width: 50%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></body></html>");
+			pw.print( "<body  bgcolor=\"#000003\"  align=\"center\"><div style=\"width: 100%; overflow: auto; border: 1px solid #000;background-color:#0003;opacity:1;\" align=\"center\"><div style=\"width: 50%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></div></body></html>");
 			
 		} else {
-			pw.print("</head><body><h2>Forbidden</h2></body></html>");
+			pw.print(buildWebPage("Forbidden . "));
+			//pw.print("</head><body><h2>Forbidden</h2></body></html>");
 		}
 		pw.flush();
 		pw.close();
@@ -85,9 +89,10 @@ public class Landing extends HttpServlet {
 			{
 				pw.print(buildJavascript());
 				pw.print("</head>");
-				pw.print( "<body><div style=\"width: 90%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></body></html>");
+				pw.print( "<body bgcolor=\"#00003\"><div style=\"width: 100%; overflow: auto; border: 1px solid #000;background-color:#0003;opacity:1;\" align=\"center\"><div style=\"width: 90%; overflow: auto; border: 1px solid #000;background-color:#fcfcfc;opacity:.7;\" align=\"center\" id=\'table_div\'></div></div></body></html>");
 			} else {
-				pw.print("</head><body><h2>Invalid UserName and password</h2></body></html>");
+				pw.print(buildWebPage("Invalid Username and / or password . "));
+				//pw.print("</head><body><h2>Invalid UserName and password</h2></body></html>");
 			}
 			session.setAttribute("userName", request.getParameter("username"));
 			session.setAttribute("password", request.getParameter("password"));
@@ -95,10 +100,11 @@ public class Landing extends HttpServlet {
 		} else if (session.getAttribute("userName") != null && session.getAttribute("password")!=null) {
 			pw.print(buildJavascript(request.getParameter("userName2")));
 			pw.print("</head>");
-			pw.print( "<body align=\"center\"><div style=\"width: 80%; overflow: auto; border: 1px solid #000;background-color:#F2F2F2;opacity:.7;\" align=\"center\" id=\'table_div\'></div></body></html>");
+			pw.print( "<body align=\"center\" bgcolor=\"#00003\"><div style=\"width: 100%; overflow: auto; border: 1px solid #000;background-color:#0003;opacity:1;\" align=\"center\"><div style=\"width: 80%; overflow: auto; border: 1px solid #000;background-color:#fcfcfc;opacity:.7;\" align=\"center\" id=\'table_div\'></div></div></body></html>");
 			
 		} else {
-			pw.print("</head><body><h2>Forbidden"+session.getAttribute("userName")+"</h2></body></html>");
+			pw.print(buildWebPage("Forbidden, You are not allowed here "));
+			//pw.print("</head><body><h2>Forbidden"+session.getAttribute("userName")+"</h2></body></html>");
 		}
 		pw.flush();
 		pw.close();
@@ -172,20 +178,51 @@ public class Landing extends HttpServlet {
 		
 		ArrayList<ArrayList<String>> dataDB = SimpleDB.getUserDetails(userName);
 		// TODO : Modify the dataDB to rearrange the data collected
+		for(int i=0;i<dataDB.size();i++)
+		{		
+			Collections.sort(dataDB.get(i), new Comparator<String>() {
+		    public int compare(String a, String b) {
+		        return Integer.signum(fixString(a) - fixString(b));
+		    }
+		    private int fixString(String in) {
+		    	if(in.indexOf('~') == -1) {
+		    		return -1000000;
+		    	} else {
+		    		return Integer.parseInt(in.substring(0, in.indexOf('~')));
+		    	}
+		    }
+		    
+		    
+			});
+
+		    
+		    for(int j=0;j<dataDB.get(i).size();j++) {
+		    	String tempString = dataDB.get(i).get(j);
+		    	if(tempString.indexOf('~') != -1) { 
+		    		dataDB.get(i).set(j, tempString.substring(tempString.indexOf('~')+1));
+		    	}
+		    }
+		    
 		
+		}
 		ArrayList<String> cols = dataDB.remove(0);
-	
+	    
+		
+		
+		
+		
+		
 		
 //			     "  data.addColumn(\'string\', \'userName\');\n");
 		
-		for(int i=0;i<cols.size();i++) {
+		for(int i=2;i<cols.size();i++) {
 			data.append("data.addColumn(\'string\', \'"+ cols.get(i)+"\');\n");
 		}
 		
 		for(int i=0;i<dataDB.size();i++) {
 			data.append(" data.addRows([[");
 			ArrayList<String> tuple = dataDB.get(i);
-			for(int j=0;j<tuple.size();j++) {
+			for(int j=2;j<tuple.size();j++) {
 				data.append("\'"+tuple.get(j)+"\'");
 				if(j != tuple.size() -1) {
 					data.append(",");
@@ -208,6 +245,33 @@ public class Landing extends HttpServlet {
 		data.append("</script>\n");
 		
 		return data.toString();
+	}
+	
+	
+	public String buildWebPage(String info) {
+		StringBuilder pw = new StringBuilder();
+		
+		pw.append("<html><head><title>Sleep Diary</title><link href=\"/sleepDiary/css\" type=\"text/css\" rel=\"stylesheet\" />");
+		pw.append("</head><body>"	
+				+ "<div class=\"content\">"
+					+ "<div class=\"top_block header\">"
+						+ "<div class=\"content\">"
+						+ "Sleep Diary"
+						+ "</div>"
+					+"</div>" 
+					+"<form id=\"login\" action=\".\\index\" method=\"get\">"
+					+ "<label>"+info+"</label>"
+					+ "<input type=\"submit\" value=\"Click to Return\" name=\"submit\" class=\"submit\" />"
+			        + "</form>"
+					+ "<div class=\"bottom_block footer\">" 
+					+	 "<div class=\"content\">"
+					+	 "</div>"
+					+ "</div>" 
+				+ "</div>");
+			
+		pw.append("</body> </html>");
+		return pw.toString();
+		
 	}
 	
 

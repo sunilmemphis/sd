@@ -7,10 +7,12 @@ public class Questionnaire {
 	int version;
 	public String routine;
 	public ArrayList<String> answers ;
+	public ArrayList<String> questions ;
 	
 	public Questionnaire(int version) {
 		version = version;
 		answers = new ArrayList<String>();
+		questions  = new ArrayList<String>();
 	}
 
 	private void readQuestions() {
@@ -34,8 +36,16 @@ public class Questionnaire {
 		
 		return answers;
 	}
+
+	public void addQuestions(String string) {
+		questions.add(string);
+		
+	}
 	
-	
+	public ArrayList<String> getQuestions() {
+		
+		return questions;
+	}
 	
 	
 }

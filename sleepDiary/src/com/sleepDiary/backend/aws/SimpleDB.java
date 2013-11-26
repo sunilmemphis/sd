@@ -243,12 +243,12 @@ public class SimpleDB {
 		rAttributes.add(new ReplaceableAttribute("Routine", questionnaire.getRoutine(), true));
 		
 		ArrayList<String> answers = questionnaire.getAnswers() ;
-		
+		ArrayList<String> questions  = questionnaire.getQuestions();
 		
 		
 		for(int answerIndex = 0 ; answerIndex < answers.size(); answerIndex++) {
 			String ans = (new Integer(answerIndex)).toString();
-			rAttributes.add(new ReplaceableAttribute(ans, answers.get(answerIndex), true));
+			rAttributes.add(new ReplaceableAttribute(questions.get(answerIndex), answers.get(answerIndex), true));
 			
 		}
 		replaceableItem.setAttributes(rAttributes);

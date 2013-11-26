@@ -5,24 +5,8 @@ html, body {
 	height: 100%; 
 	margin-left: auto;
   	margin-right: auto;
-  	/* IE10 Consumer Preview */ 
-/* IE10 Consumer Preview */ 
-background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #851296 100%);
-
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #851296 100%);
-
-/* Opera */ 
-background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #851296 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #851296));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #851296 100%);
-
-/* W3C Markup, IE10 Release Preview */ 
-background-image: linear-gradient(to top, #FFFFFF 0%, #851296 100%);
+  	
+	background-image:url("http://wallpink.com/wp-content/uploads/2013/06/Free-Background-Images-Css.jpg")
 
 }
 
@@ -75,8 +59,8 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #851296 100%);
 
 .header {
 	width: 100%;
-	height: 70px;
-	background-color: #851296;
+	height: 120px;
+	background-color: #00000;
 	text-shadow: 4px 4px 1px rgba(150, 150, 150, 0.63);
 	text-align:center;
 	font-family:"Times New Roman", Times, serif;
@@ -88,8 +72,8 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #851296 100%);
 
 .footer {
 	width: 100%;
-	height: 70px;
-	background-color: #000000;
+	height: 1px;
+	background-color: #FCFCFC;
 }
 
 form {
@@ -99,27 +83,27 @@ form {
     vertical-align: middle;
     margin-left: auto;
   	margin-right: auto;
-  	top:20%; 
+  	top:10%; 
     /*** Adding in CSS3 ***/
- 
+ 	color:#fcfcfc;
     /*** Rounded Corners ***/
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
- 
+ 	background: #000000
     /*** Background Gradient - 2 declarations one for Firefox and one for Webkit ***/
-    background:  -moz-linear-gradient(19% 75% 90deg,#4E0085, #963AD6);
-    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#963AD6), to(#4E0085));
- 
+    background:  -moz-linear-gradient(19% 75% 90deg, #D1CDD4, #2B2A2B);
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#2B2A2B), to(#D1CDD4));
+	 
     /*** Shadow behind the box ***/
-    -moz-box-shadow:0px -5px 300px #270644;
-    -webkit-box-shadow:0px -5px 300px #270644;
+    -moz-box-shadow:0px -5px 300px #FCFCFC;
+    -webkit-box-shadow:0px -5px 300px #FCFCFC;
 }
 
 
 
 input {
     width: 230px;
-    background: #8a33c6;
+    background: #FCFCFC;
     padding: 6px;
     margin-bottom: 10px;
     border-top: 1px solid #ad64e0;
@@ -130,11 +114,12 @@ input {
 
 input:hover {
     -webkit-box-shadow: 0px 0px 4px #000;
-    background: #9d39e1;
+    background: #D1CDD4;
+    color: #000003;
 }
 
 input.submit {
-    width: 100px;
+    width: 200px;
     color: #fff;
     text-transform: uppercase;
     text-shadow: #000 1px 1px;
@@ -142,7 +127,7 @@ input.submit {
     margin-top: 10px;
  
     /*** Adding CSS3 Gradients ***/
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#963AD6), to(#781bb9));   
-    background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);   
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D1CDD4), to(#5C58DB));   
+    background:  -moz-linear-gradient(19% 75% 90deg,#5C58DB, #D1CDD4);   
 }
 

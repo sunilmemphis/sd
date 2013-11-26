@@ -120,6 +120,7 @@ public class Packet {
 			Questionnaire newQuestionnaire = new Questionnaire(version);
 			newQuestionnaire.routine = dataLines[1];
 			for( int i = 2; i< dataLines.length; i++) {
+				newQuestionnaire.addQuestions(dataLines[i++]);
 				newQuestionnaire.addAnswers(dataLines[i]);
 			}
 			return newQuestionnaire;
