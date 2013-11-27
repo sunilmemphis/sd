@@ -17,7 +17,7 @@ local scrollView
 
 require "sqlite3"
 --Open data.db.  If the file doesn't exist it will be created
-local path = system.pathForFile("data10.db", system.DocumentsDirectory)
+local path = system.pathForFile("data12.db", system.DocumentsDirectory)
 db = sqlite3.open( path )   
 
 local function printDB(db) 
@@ -53,17 +53,18 @@ local function networkListener1( event )
 		print("in Nw Listener")
         if ( event.isError and not(event.status == 200)  ) then
         	print( "Network error!")
-            local alert = native.showAlert( "Sleep eDiary", "Network Error. Try again later" .. event.status, { "OK" }, onCompleteAlert)
+            local alert = native.showAlert( "Sleep eDiary", "Network Error.  Data not uploaded. Ensure there is a working internet connection" .. event.status, { "OK" }, onCompleteAlert)
             return
         else
                 print ( "RESPONSE: " .. event.response )
-                local tableUpdate = [[UPDATE data SET written=T]]
+                local tableUpdate = [[UPDATE data SET written='T' WHERE written='F';]]
                 db:exec( tableUpdate )
  				local alert = native.showAlert( "Sleep eDiary", "Data sent" .. event.status, { "OK" }, onCompleteAlert )
         end
         
         print(">>>"..answerString)
         local alert = native.showAlert( "Sleep eDiary", "Diary entry added !", { "OK" }, onCompleteAlert )
+        printDB(db)
         
 end
 
@@ -106,24 +107,29 @@ local buttonHandlerSubmit = function( event )
 	printDB(db);
 	
 	--Send data through POST
-	
-	local headers = {}
-	if(dataTableNew["userName"]) then
-		headers["userName"] = dataTableNew["userName"]
-	else 
-		storyboard.gotoScene("register","fromRight");
-	end
-	--headers["data"] = answerString
-	headers["TypeOfData"] = "data"
-	--headers["tokenId"] = dataTableNew["tokenId"]
-	local body = answerString
 
-	local params = {}
-	params.headers = headers
-	params.body = body
-	print("Sending request --"..answerString)
-	params.timeout = 400 
-	network.request( "http://54.221.197.247/sleepDiary/Dispatcher", "POST", networkListener1, params)
+	for row in db:nrows("SELECT * FROM data WHERE written=\'F\'") do
+		answerString = row.content
+	  	--local text = row.time.." has<<< "...."<< "..row.written
+	
+		local headers = {}
+		if(dataTableNew["userName"]) then
+			headers["userName"] = dataTableNew["userName"]
+		else 
+			storyboard.gotoScene("register","fromRight");
+		end
+		--headers["data"] = answerString
+		headers["TypeOfData"] = "data"
+		--headers["tokenId"] = dataTableNew["tokenId"]
+		local body = answerString
+
+		local params = {}
+		params.headers = headers
+		params.body = body
+		print("Sending request --"..answerString)
+		params.timeout = 400 
+		network.request( "http://54.221.197.247/sleepDiary/Dispatcher", "POST", networkListener1, params)
+	end
 	
 	
 end
