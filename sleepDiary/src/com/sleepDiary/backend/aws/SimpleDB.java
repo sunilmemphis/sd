@@ -240,7 +240,7 @@ public class SimpleDB {
 	    long utc = System.currentTimeMillis();
 	    
 	    Date d = new Date(utc);
-	    DateFormat format = new SimpleDateFormat("yy/M/dd hh:mm a z");
+	    DateFormat format = new SimpleDateFormat("M/dd/yyyy hh:mm a z");
 	    format.setTimeZone(tz);
 	    
 	    
