@@ -4,10 +4,13 @@
 package com.sleepDiary.backend.aws;
 
 // Logger class
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
@@ -231,6 +234,16 @@ public class SimpleDB {
 			logger.error(e.toString());
 			return DBCodes.DOMAIN_CREATION_FAILED;
 		}
+		
+		String tzid = "EST";
+	    TimeZone tz = TimeZone.getTimeZone(tzid);
+	    long utc = System.currentTimeMillis();
+	    
+	    Date d = new Date(utc);
+	    DateFormat format = new SimpleDateFormat("yy/M/dd hh:mm a z");
+	    format.setTimeZone(tz);
+	    
+	    
 		Date currentDate = new Date();
 		
 		List<ReplaceableItem> entity = new ArrayList<ReplaceableItem>();
@@ -239,7 +252,7 @@ public class SimpleDB {
 		ArrayList<ReplaceableAttribute> rAttributes = new ArrayList<ReplaceableAttribute>();
 		rAttributes.add(new ReplaceableAttribute("userName", userName, true));
 		rAttributes.add(new ReplaceableAttribute("DateTime", (new Long(currentDate.getTime())).toString(), true));
-		rAttributes.add(new ReplaceableAttribute("Date", currentDate.toGMTString(), true));
+		rAttributes.add(new ReplaceableAttribute("Date", format.format(d), true));
 		rAttributes.add(new ReplaceableAttribute("Routine", questionnaire.getRoutine(), true));
 		
 		ArrayList<String> answers = questionnaire.getAnswers() ;

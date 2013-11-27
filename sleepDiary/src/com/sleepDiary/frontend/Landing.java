@@ -88,8 +88,8 @@ public class Landing extends HttpServlet {
 			if(SimpleDB.researcherPasswordValid(request.getParameter("username"), request.getParameter("password")))
 			{
 				pw.print(buildJavascript());
-				pw.print("</head>");
-				pw.print( "<body bgcolor=\"#00003\"><div style=\"width: 100%; overflow: auto; border: 1px solid #000;background-color:#0003;opacity:1;\" align=\"center\"><div style=\"width: 90%; overflow: auto; border: 1px solid #000;background-color:#fcfcfc;opacity:.7;\" align=\"center\" id=\'table_div\'></div></div></body></html>");
+				pw.print("<h1>test</h1></head>");
+				pw.print( "<body bgcolor=\"#00003\"><div style=\"width: 100%; overflow: auto; border: 1px solid #000;background-color:#0003;opacity:1;\" align=\"center\"><div style=\"height:10%><div style=\"width: 90%; overflow: auto; border: 1px solid #000;background-color:#fcfcfc;opacity:.7;\" align=\"center\" id=\'table_div\'></div></div></body></html>");
 			} else {
 				pw.print(buildWebPage("Invalid Username and / or password . "));
 				//pw.print("</head><body><h2>Invalid UserName and password</h2></body></html>");
@@ -99,7 +99,7 @@ public class Landing extends HttpServlet {
 			
 		} else if (session.getAttribute("userName") != null && session.getAttribute("password")!=null) {
 			pw.print(buildJavascript(request.getParameter("userName2")));
-			pw.print("</head>");
+			pw.print("<h1>test</h1></head>");
 			pw.print( "<body align=\"center\" bgcolor=\"#00003\"><div style=\"width: 100%; overflow: auto; border: 1px solid #000;background-color:#0003;opacity:1;\" align=\"center\"><div style=\"width: 80%; overflow: auto; border: 1px solid #000;background-color:#fcfcfc;opacity:.7;\" align=\"center\" id=\'table_div\'></div></div></body></html>");
 			
 		} else {
@@ -140,7 +140,7 @@ public class Landing extends HttpServlet {
 		data.append( "function selectHandler() {\n" +
 					 "var selection = table.getSelection();\n" +
 					 "for (var i = 0; i < selection.length; i++) { var item = selection[i]; }\n" +
-					 "alert(\'You selected :\' + item.row );\n" +
+					// "alert(\'You selected :\' + item.row );\n" +
 					 "window.location.href = \"http://54.221.197.247/sleepDiary/landing?userName2=\"+item.row;}\n");
 		
 		
