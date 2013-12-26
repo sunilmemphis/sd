@@ -1,0 +1,12 @@
+package com.uphs.sleepDiary.shared;
+
+public enum ResultType {
+	USER_DOESNT_EXIST,
+	PASSWORD_INCORRECT,
+	LOGIN_SUCCESSFUL,
+	LOGIN_FAILED,
+	DATA_SENT,
+	DATA_NOT_AVAILABLE,
+	FILE_SENT,
+	FILE_NOT_AVAILABLE
+}

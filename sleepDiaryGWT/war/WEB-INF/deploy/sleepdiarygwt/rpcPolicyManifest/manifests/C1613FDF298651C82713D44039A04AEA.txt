@@ -1,0 +1,2 @@
+serviceClass: com.uphs.sleepDiary.client.GreetingService
+path: F962B8B720D539D921F48C8DBC86D015.gwt.rpc
