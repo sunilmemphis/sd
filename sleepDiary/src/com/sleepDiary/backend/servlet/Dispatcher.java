@@ -13,6 +13,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 
+
+
 //Servlet Support
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,12 +29,16 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
 // log4j logging
 import org.apache.log4j.Logger;
 
+import com.sleepDiary.backend.aws.SimpleDB;
 import com.sleepDiary.backend.crypt.Crypt;
 import com.sleepDiary.backend.data.Packet;
 import com.sleepDiary.backend.data.statusCodes;
+import com.sleepDiary.backend.statusCodes.DBCodes;
 
 
 
@@ -193,18 +199,41 @@ public class Dispatcher extends HttpServlet {
 		Packet packet = new Packet();
 		//returnErrorMsg(response,packet);
 		logger.info("In Post");
-		if(checkHeaders(request,packet) == false ) {
-			logger.error("Headers are not in place ");
-			returnErrorMsg(response,packet);
-		} else {
-			if (processRequest(request,response,packet)) {
-				returnStatus(response,packet);
-			} else {
-				logger.error("Processing requests failed ");
-				returnErrorMsg(response,packet);
-			}
+		logger.info("Number of headers " + response.getHeaderNames().size());
+		for(String headerName: response.getHeaderNames()) {
+			logger.info("GOT " + headerName + " having " +response.getHeader(headerName) );
 		}
 		
+		String body = getBody(request);
+		logger.info("REcv body : " + body);
+		String[] details = body.split(" ");
+		
+		if(details.length == 4 && details[0].equals("Tapdata")) {
+			
+			String userName = details[1];
+			String tapTime = details[2];
+			String tapNumber = details[3];
+			if(SimpleDB.addTap(userName, new Long(tapTime), tapNumber) == DBCodes.TAP_ADDED) {
+				packet.setStatusCode(statusCodes.DATA_ADDED, "Data was added");
+				returnStatus(response,packet);
+			} else {
+				packet.setStatusCode(statusCodes.DATA_RESEND, "Data was not added");
+				returnErrorMsg(response,packet);
+			}
+			
+		} else {
+			if(checkHeaders(request,packet) == false ) {
+				logger.error("Headers are not in place ");
+				returnErrorMsg(response,packet);
+			} else {
+				if (processRequest(request,response,packet)) {
+					returnStatus(response,packet);
+				} else {
+					logger.error("Processing requests failed ");
+					returnErrorMsg(response,packet);
+				}
+			}
+		}
 		
 	}
 

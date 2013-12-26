@@ -47,6 +47,7 @@ public class SimpleDB {
 	static String userDomain = "SleepDiaryUsers";
 	static String questionnaireDomain = "SleepDiaryData";
 	static String researchDomain = "SleepDiaryResearch";
+	static String tapDomain = "SleepDiaryTapData";
 	public SimpleDB() {
 		
 	}
@@ -202,6 +203,51 @@ public class SimpleDB {
 		
 		return DBCodes.USER_ADDED;
 	}
+	
+	public static DBCodes addTap(String userName, long time, String tapNumber) {
+		logger.info("Adding tap number "+tapNumber+" to " + userName);
+		
+		
+		try {
+			init(tapDomain);
+		} catch (Exception e) {
+			logger.error(e.toString());
+			return DBCodes.DOMAIN_CREATION_FAILED;
+		}
+		String tzid = "EST";
+	    TimeZone tz = TimeZone.getTimeZone(tzid);
+	    
+	    
+	    Date d = new Date(time);
+	    DateFormat format = new SimpleDateFormat("M/dd/yyyy hh:mm a z");
+	    format.setTimeZone(tz);
+	 
+		
+		List<ReplaceableItem> entity = new ArrayList<ReplaceableItem>();
+		entity.add(new ReplaceableItem(userName+time).withAttributes(
+	                new ReplaceableAttribute("userName", userName, true),
+	                new ReplaceableAttribute("Date", format.format(d), true),
+	                new ReplaceableAttribute("DateTime", Long.toString(time), true),
+	                new ReplaceableAttribute("tapNumber", tapNumber, true))
+	          );
+		
+		try {
+			// Put data into a domain
+            logger.info("Putting tap details  into " + tapDomain + " domain."+userName+" : "+tapNumber+"\n");
+            sdb.batchPutAttributes(new BatchPutAttributesRequest(tapDomain, entity));
+
+		} catch (AmazonServiceException ase ) {
+			printException(ase);
+            return DBCodes.TAP_NOT_ADDED;
+        } catch (AmazonClientException ase ) {
+            printException(ase);
+            return DBCodes.TAP_NOT_ADDED;
+        } 
+
+		
+		return DBCodes.TAP_ADDED;
+	}
+	
 	
 	public static DBCodes enterData(String tokenId, String userName, Questionnaire questionnaire) {
 		try {

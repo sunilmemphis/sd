@@ -101,7 +101,8 @@ public class TestSimpleDB extends TestCase {
 		q.routine = "Evening";
 		q.addAnswers("answer 1");
 		q.addAnswers("answer 2");
-		
+		q.addQuestions("question 1");
+		q.addQuestions("Question 2");
 		assertTrue(SimpleDB.enterData("rte", "testuser4", q) == DBCodes.DATA_ADDED); 
 	}
 	
@@ -131,6 +132,11 @@ public class TestSimpleDB extends TestCase {
 			System.out.println("\n");
 		}
 		
+	}
+	
+	public void testAddTap() {
+		
+		assertTrue(SimpleDB.addTap("testuser4", System.currentTimeMillis(), new String("1")) == DBCodes.TAP_ADDED);
 	}
 
 }
