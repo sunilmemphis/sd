@@ -12,6 +12,6 @@ import com.uphs.sleepDiary.shared.Result;
 @RemoteServiceRelativePath("greet")
 public interface GreetingService extends RemoteService {
 	Result greetServer(String name) throws IllegalArgumentException;
-	Result getSubjectInfo(String username, long[] time);
-	String getDataFileName(String username, long[] time);
+	Result getSubjectInfo(String username, long[] time,boolean isTap);
+	String getDataFileName(String username, long[] time,boolean isTap);
 }

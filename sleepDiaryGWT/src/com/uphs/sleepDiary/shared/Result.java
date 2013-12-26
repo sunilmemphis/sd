@@ -11,6 +11,7 @@ public class Result implements Serializable {
 	public ResultType resultType;
 	ArrayList<ArrayList<String>> answers;
 	ArrayList<String> subjectUserNames;
+	ArrayList<ArrayList<String>> tap;
 	
 	public ArrayList<String> getUserNames() {
 		return subjectUserNames;
@@ -22,6 +23,14 @@ public class Result implements Serializable {
 
 	public ArrayList<ArrayList<String>> getAnswers() {
 		return answers;
+	}
+
+	public ArrayList<ArrayList<String>> getTap() {
+		return tap;
+	}
+
+	public void setTap(ArrayList<ArrayList<String>> tap) {
+		this.tap = tap;
 	}
 
 	public void setAnswers(ArrayList<ArrayList<String>> answers) {

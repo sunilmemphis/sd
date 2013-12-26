@@ -206,7 +206,12 @@ public class SimpleDB {
           return userNames;
 	}
 	
-	public static ArrayList<ArrayList<String>> getUserDetails(String userName,long[] time) {
+	public static ArrayList<ArrayList<String>> getUserDetails(String userName,long[] time, boolean isTap) {
+		String myDomain;
+		if(isTap)
+			myDomain = "SleepDiaryTapData";
+		else
+			myDomain = questionnaireDomain;
 		
 		ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
 		try {
@@ -214,7 +219,7 @@ public class SimpleDB {
 		} catch (Exception e) {
 			logger.error(e.toString());
 		}
-		String myDomain = questionnaireDomain;
+		
 		String selectExpression = null;
 		if(time == null) {
 		    selectExpression = "select * from `" + myDomain + "` where userName = \'" + userName + "\' intersection DateTime is not null order by DateTime desc limit 100";
@@ -243,20 +248,30 @@ public class SimpleDB {
                 	  tempcols.add(s);
                   
                   Collections.sort(tempcols);
-                  
-                  
+                  int noOfItemsPreChosen = 4;
                   reshuffleOrder.add(cols.indexOf("userName"));
                   reshuffleOrder.add(cols.indexOf("Date"));
                   reshuffleOrder.add(cols.indexOf("DateTime"));
-                  reshuffleOrder.add(cols.indexOf("Routine"));
-                  for(int i=0;i<cols.size() -4; i++) {
-                	  reshuffleOrder.add(cols.indexOf(tempcols.get(i)));
-                  }
-                  ArrayList<String> shuffledCols  = new ArrayList<String>();
-                  for(Integer index : reshuffleOrder) {
-                	  shuffledCols.add(cols.get(index));
-                  }
-                  data.add(shuffledCols);
+
+                  if(isTap) {
+                  
+	                  
+					noOfItemsPreChosen = 3;
+				} else {
+					reshuffleOrder.add(cols.indexOf("Routine"));
+				}
+
+				
+				for (int i = 0; i < cols.size() - noOfItemsPreChosen; i++) {
+					reshuffleOrder.add(cols.indexOf(tempcols.get(i)));
+				}
+				ArrayList<String> shuffledCols = new ArrayList<String>();
+				for (Integer index : reshuffleOrder) {
+					shuffledCols.add(cols.get(index));
+				}
+
+				data.add(shuffledCols);
+                
                   //data.add(cols);
         	  }
         	  

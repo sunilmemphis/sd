@@ -224,6 +224,9 @@ public class SleepDiaryGWT implements EntryPoint {
 											horizontalPanel.add(btnExportData);
 											btnExportData.setWidth("150px");
 											
+											Button btnViewTap = new Button("View Tap");
+											horizontalPanel.add(btnViewTap);
+											btnViewTap.setWidth("150px");
 											
 											Button btnRange = new Button("Set Date Range");
 											horizontalPanel.add(btnRange);
@@ -275,7 +278,13 @@ public class SleepDiaryGWT implements EntryPoint {
 														horizontalPanel_1.setVisible(true);
 												}
 											});
-											
+
+											final ScrollPanel scrollPanel = new ScrollPanel();
+											verticalPanel.add(scrollPanel);
+											final CellTable<cellTableObject> cellTable = new CellTable<cellTableObject>();
+											final CellTable<cellTableObject> tapTable = new CellTable<cellTableObject>();
+											tapTable.setVisible(false);
+											boolean tapCheck = false;
 											btnExportData.addClickHandler(new ClickHandler() {
 												public void onClick(ClickEvent event) 
 											    {
@@ -294,7 +303,11 @@ public class SleepDiaryGWT implements EntryPoint {
 														datePicker.setValue(new Date());
 														datePicker_1.setValue(new Date());
 													}
-													greetingService.getDataFileName(subjectName, time,
+													boolean isTap = false;
+													if(tapTable.isVisible()) {
+														isTap = true;
+													}
+													greetingService.getDataFileName(subjectName, time, isTap,
 															new AsyncCallback<String>() {
 							
 																public void onSuccess(String result) {
@@ -315,11 +328,97 @@ public class SleepDiaryGWT implements EntryPoint {
 										        }
 											});
 											
-											final ScrollPanel scrollPanel = new ScrollPanel();
-											verticalPanel.add(scrollPanel);
+											btnViewTap.addClickHandler(new ClickHandler() {
+												public void onClick(ClickEvent event) {
+													System.out.println("Button Clicked !!!!");
+													if(tapTable.isVisible()) {
+														tapTable.setVisible(false);
+														cellTable.flush();
+														cellTable.setVisible(true);
+														scrollPanel.setWidget(cellTable);
+														System.out.println("<<<<<<<<<<<<<<Why here");
+													} else {
+														if(tapTable.getAccessKey() != 'a') { 
+														greetingService.getSubjectInfo(subjectName, null,false,
+																new AsyncCallback<Result>() {
+																	public void onFailure(Throwable caught) {
+																		// Show the RPC error message to the user
+																		Label welcomeLabel = new Label();
+																		welcomeLabel.setHeight("30px");
+																		welcomeLabel.setWidth("100%");
+																		welcomeLabel.setText(SERVER_ERROR);
+																		verticalPanel.add(welcomeLabel);
+																		
+																	}
+
+																	public void onSuccess(Result result) {
+																		
+																		ArrayList<ArrayList<String>> resultAnswer = result.getTap();
+																		if(resultAnswer == null) {
+																			Label errorRetreivingLabel = new Label();
+																			errorRetreivingLabel.setHeight("30px");
+																			errorRetreivingLabel.setWidth("100%");
+																			errorRetreivingLabel.setText("Unable to retrieve data for subject");
+																			verticalPanel.add(errorRetreivingLabel);
+															
+																		} else {
+																			System.out.println("<<<<<<<<<<<<<<?");
+						
+																			System.out.println("<<<<<<<<<<<<<<"+resultAnswer.size());
+																			cellTable.setVisible(false);
+																			tapTable.setTitle("Tap");
+																			cellTableObject ctObject = new cellTableObject(resultAnswer.get(0));
+
+																			for(String colName: resultAnswer.get(0)) {
+
+																				TextColumn<cellTableObject> nameColumn = 
+																						new TextColumn<cellTableObject>() {
+																							@Override
+																							public String getValue(cellTableObject object) {
+																								return object.getData();
+																							}
+																						};
+
+																						tapTable.addColumn(nameColumn,colName);
+																			}
+																			//cellTable.setRowCount(resultAnswer.size());
+																			// Create a data provider.
+																			ListDataProvider<cellTableObject> dataProvider = new ListDataProvider<cellTableObject>();
+
+																			// Connect the table to the data provider.
+																			dataProvider.addDataDisplay(tapTable);
+
+																			// Add the data to the data provider, which automatically pushes it to the
+																			// widget.
+																			List<cellTableObject> list = dataProvider.getList();
+																			for (ArrayList<String> rowData : resultAnswer.subList(1, resultAnswer.size())) {
+																				list.add(new cellTableObject(rowData));
+																			}
+																	
+																			scrollPanel.setWidget(tapTable);
+																			tapTable.flush();
+																			tapTable.setVisible(true);
+																			tapTable.setAccessKey('a');
+																		}
+																		
+																	}
+														});	
+														} else {
+															tapTable.setVisible(true);
+															tapTable.redraw();
+															scrollPanel.setWidget(tapTable);
+														}
+														
+													}
+												}
+											});	
+
+										        
+											
+											
 											//scrollPanel.setWidth((rootPanel.getElement().getAbsoluteRight() - rootPanel.getElement().getAbsoluteLeft())+"px");
 											
-											greetingService.getSubjectInfo(subjectName, null,
+											greetingService.getSubjectInfo(subjectName, null,false,
 													new AsyncCallback<Result>() {
 														public void onFailure(Throwable caught) {
 															// Show the RPC error message to the user
@@ -332,6 +431,7 @@ public class SleepDiaryGWT implements EntryPoint {
 														}
 
 														public void onSuccess(Result result) {
+															
 															ArrayList<ArrayList<String>> resultAnswer = result.getAnswers();
 															if(resultAnswer == null) {
 																Label errorRetreivingLabel = new Label();
@@ -341,7 +441,7 @@ public class SleepDiaryGWT implements EntryPoint {
 																verticalPanel.add(errorRetreivingLabel);
 												
 															} else {
-																CellTable<cellTableObject> cellTable = new CellTable<cellTableObject>();
+																
 																
 																cellTable.setSize("100%", "100%");
 																cellTable.setTitle("Questionairre");

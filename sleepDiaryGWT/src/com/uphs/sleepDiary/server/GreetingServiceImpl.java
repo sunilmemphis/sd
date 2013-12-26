@@ -71,16 +71,18 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public Result getSubjectInfo(String userName, long[] time) throws IllegalArgumentException {
+	public Result getSubjectInfo(String userName, long[] time,boolean isTap) throws IllegalArgumentException {
 		
-		ArrayList<ArrayList<String>> userDetails = SimpleDB.getUserDetails(userName,time);
+		ArrayList<ArrayList<String>> userDetails = SimpleDB.getUserDetails(userName,time,false);
+		ArrayList<ArrayList<String>> tapDetails = SimpleDB.getUserDetails(userName,time,true);
 		Result result=new Result(null,null,RequestType.DATA);
 		result.setAnswers(userDetails);
+		result.setTap(tapDetails);
 		return result;
 	}
 
-	public String getDataFileName(String userName, long[] time) {
-		final ArrayList<ArrayList<String>> userDetails = SimpleDB.getUserDetails(userName,time);
+	public String getDataFileName(String userName, long[] time, boolean isTap) {
+		final ArrayList<ArrayList<String>> userDetails = SimpleDB.getUserDetails(userName,time,isTap);
 		 // define format of CSV file one time and use everywhere
         // human readable configuration 
         CSV csv = CSV.separator(',')
