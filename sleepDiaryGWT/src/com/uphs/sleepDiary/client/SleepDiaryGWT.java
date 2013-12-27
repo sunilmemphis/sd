@@ -98,6 +98,7 @@ public class SleepDiaryGWT implements EntryPoint {
 			 * Fired when the user clicks on the sendButton.
 			 */
 			public void onClick(ClickEvent event) {
+				sendButton.setEnabled(false);
 				sendNameToServer();
 			}
 
@@ -121,6 +122,7 @@ public class SleepDiaryGWT implements EntryPoint {
 				String textToServer = nameField.getText()+ " " + passwordField.getText();
 				if (!FieldVerifier.isValidName(textToServer)) {
 					errorLabel.setText("Please enter at least four characters");
+					sendButton.setEnabled(true);
 					return;
 				}
 
@@ -156,7 +158,7 @@ public class SleepDiaryGWT implements EntryPoint {
 								} else {
 									errorLabel.setText("User name or password is invalid. Re-Enter");
 									nameField.setText("Enter User Name");
-									
+									sendButton.setEnabled(true);
 								}
 								
 								
@@ -224,7 +226,7 @@ public class SleepDiaryGWT implements EntryPoint {
 											horizontalPanel.add(btnExportData);
 											btnExportData.setWidth("150px");
 											
-											Button btnViewTap = new Button("View Tap");
+											final Button btnViewTap = new Button("View Tap");
 											horizontalPanel.add(btnViewTap);
 											btnViewTap.setWidth("150px");
 											
@@ -336,8 +338,9 @@ public class SleepDiaryGWT implements EntryPoint {
 														cellTable.flush();
 														cellTable.setVisible(true);
 														scrollPanel.setWidget(cellTable);
-														System.out.println("<<<<<<<<<<<<<<Why here");
+														btnViewTap.setText("View Tap");
 													} else {
+														btnViewTap.setText("View Questionairre");
 														if(tapTable.getAccessKey() != 'a') { 
 														greetingService.getSubjectInfo(subjectName, null,false,
 																new AsyncCallback<Result>() {
