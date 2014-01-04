@@ -93,13 +93,11 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 
          String fileName = userName+".csv";
          File temp = new File("war/sleepdiarygwt/"+fileName);
-         /*if(temp.exists()) 
-        	 temp.delete();*/
+         
          try {
-			if(temp.createNewFile()) {
-				temp.delete();
-				temp.createNewFile();
-			}
+        	 
+        	
+        	 
 			FileWriter fw = new FileWriter(temp);
 			boolean recordsExist = false;
 			for(ArrayList<String> row : userDetails) {
