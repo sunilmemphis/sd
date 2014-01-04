@@ -17,7 +17,7 @@ local path = system.pathForFile("dataUser1.db", system.DocumentsDirectory)
 db = sqlite3.open( path ) 
 
 local getUserName = function() 
-	local filePath = system.pathForFile( "SDdata.txt", system.DocumentsDirectory )
+	local filePath = system.pathForFile( "SDdata3.txt", system.DocumentsDirectory )
 	local file = io.open( filePath, "r" )
 	
 	if file then

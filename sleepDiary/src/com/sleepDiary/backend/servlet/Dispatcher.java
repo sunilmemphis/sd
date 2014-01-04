@@ -15,12 +15,14 @@ import java.io.InputStreamReader;
 
 
 
+
 //Servlet Support
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 
@@ -104,7 +106,7 @@ public class Dispatcher extends HttpServlet {
 			if(request.getHeader("data") != null ) {
 				data = request.getHeader("data");
 			} else {
-				data = this.getBody(request);
+				data = packet.getData();
 			}
 			logger.info("In processRequest : Recv data from "+ data);
 			// TODO: decrypt the data
@@ -123,7 +125,7 @@ public class Dispatcher extends HttpServlet {
 				packet.setStatusCode(statusCodes.DATA_RESEND , "Data could not be written into the DB");
 			}
 			
-		} catch (IOException e) {
+		} catch (Exception e) {
 			logger.debug("Error reading the data packet from "+ request.getRemoteHost());
 			
 			return false;
@@ -207,7 +209,7 @@ public class Dispatcher extends HttpServlet {
 		String body = getBody(request);
 		logger.info("REcv body : " + body);
 		String[] details = body.split(" ");
-		
+		packet.setData(body);
 		if(details.length == 4 && details[0].equals("Tapdata")) {
 			
 			String userName = details[1];

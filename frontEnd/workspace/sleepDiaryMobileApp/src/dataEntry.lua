@@ -27,6 +27,10 @@ function scene:createScene( event )
 	local buttonHandlerBack = function( event )
 		storyboard.gotoScene("homePage","fromLeft");
 	end
+
+	local buttonHandlerTap = function( event )
+		storyboard.gotoScene("tapPage","fromLeft");
+	end
 	
 	local widget = require( "widget" )
 		
@@ -79,6 +83,24 @@ function scene:createScene( event )
 	
 	group:insert(backButton,true)
 	backButton.x = 280
+
+	local tapButton  = widget.newButton {
+		id = "Tap",
+		label = "Tap",
+		font = "MarkerFelt-Thin",
+		emboss = true,
+		onPress = buttonHandlerTap,
+		left = 250,
+    	top = 10,
+    	width = 100,
+    	height = 50,
+	}
+	
+	group:insert(tapButton,true)
+	tapButton.x = display.contentCenterX
+	tapButton.y = 450
+
+
 end
 
 --Add the createScene listener

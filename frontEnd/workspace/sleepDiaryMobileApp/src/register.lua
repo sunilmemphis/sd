@@ -18,6 +18,7 @@ local submitButton
 local clickOnce = 0
 local screenTextReg
 local login =false
+
 -- function for busy wait
 local clock = os.clock
 function sleep(n)  -- seconds
@@ -26,26 +27,26 @@ function sleep(n)  -- seconds
 end
 
 -- Set location for saved data
-local filePath = system.pathForFile( "data12.txt", system.DocumentsDirectory )
-
-
---Create a storyboard scene for this module
-local scene = storyboard.newScene()
-
-local buttonHandlerBack = function( event )
-	storyboard.gotoScene("register","fromLeft");
-end
-
+local filePath = system.pathForFile( "SDdata3.txt", system.DocumentsDirectory )
 -- Save data on the file
 function saveData()
 	--local levelseq = table.concat( levelArray, "-" )
-	file = io.open( filePath, "w" )
+	file = io.open( filePath, "a" )
 	for k,v in pairs( dataTable ) do
 		file:write( k .. "=" .. v .. "," )
 	end
 	io.close( file )
 end
 
+--Create a storyboard scene for this module
+local scene = storyboard.newScene()
+
+
+-- Function handlers
+
+local buttonHandlerBack = function( event )
+	storyboard.gotoScene("register","fromLeft");
+end
 -- Action Listener for ScrollView.
 local function scrollListener( event )
 		local phase = event.phase
@@ -79,17 +80,22 @@ local function onCompleteAlertRegister( event )
 end
 
 local function onCompleteAlertSuccess( event )
-    answer[1]:removeSelf() 
-    answer[2]:removeSelf() 
-    answer[3]:removeSelf() 
+    if scrollView then
+    	--scrollView:removeSelf();
+    end
+
     if screenTextReg then
     	screenTextReg:removeSelf();
     end
+
 	storyboard.gotoScene("homePage","fromRight");
 end
 
-local function onCompleteAlertTest( event )
-	--storyboard.gotoScene("register","fromRight");
+local function onCompleteAlertAuth( event )
+	if scrollView then
+    --	scrollView:removeSelf();
+    end
+	storyboard.gotoScene("homePage","fromRight");
 end
 
 local function onCompleteAlertFieldsNotFilled( event )
@@ -106,9 +112,6 @@ local function networkListener( event )
         print( "Network error!")
         local alert = native.showAlert( "Sleep eDiary", "Network Error. Try again later " .. event.status, { "OK" }, onCompleteAlertRegister )
    else
-       -- print ( "RESPONSE: " .. event.response )
-         --local alert = native.showAlert( "Sleep eDiary", "in netWorkListener" .. event.status, { "OK" }, onCompleteAlertTest )
-  
         -- User Already present
         
         if(event.status == 200) then
@@ -118,61 +121,73 @@ local function networkListener( event )
 			dataTable["tokenId"] = event.response
 			saveData()
 			if not login then
-				local alert = native.showAlert( "Sleep eDiary", "User Registered. Click OK to continue", { "OK" }, onCompleteAlertSuccess )
+				local alert = native.showAlert( "Sleep eDiary", "User Registered. Click OK to continue", { "OK" }, doNothing )
+				onCompleteAlertSuccess(event)
 			else 
 				onCompleteAlertSuccess(event)
+			end
+		else
+			if(event.status == 301 or event.status == 300) then 
+	        	local headers = {}
+				headers["userName"] = answers[1]
+				headers["data"] = answers[2]
+				headers["password"] = answers[3]
+				headers["TypeOfData"] = "register"
+				
+				local body = answers[2]
+			    
+			    --Write to remote service
+				local params = {}
+				params.headers = headers
+				params.body = body
+				print("Registration failed !!! ")
+				local error;
+				if(event.response == 301) then
+					error = "Need to resend data"
+				else 
+					error = "All fields were not filled out"
+				end
+				
+				local alert = native.showAlert( "Sleep eDiary", "Registration failed !!!" .. error, { "OK" }, onCompleteAlertRegister )
+				 y = y+20
+			elseif (event.status == 401) then
+				local alert = native.showAlert( "Sleep eDiary", "User with that username already exists. Use a different username or login", { "OK" },  onCompleteAlertFieldsNotFilled)
+				native.setKeyboardFocus(answers[1])
+			else
+				dataTable = {}
+				dataTable["userName"] = answers[1]
+				dataTable["emailId"] =  answers[2]
+				dataTable["tokenId"] = event.response
+				local t = os.date( '*t' )
+				dataTable["time"] = os.time(t)
+				saveData()
+				--local userName = display.newText("User registered", 40, y + 40, native.systemFont, 18)
+				if not login then
+					local alert = native.showAlert( "Sleep eDiary", dataTable["userName"] .. " has been registered " , { "OK" }, onCompleteAlertRegister )
+				else 
+					onCompleteAlertSuccess(event)
+				end
+				if debug then
+					print("networkListener>>>>>" .. dataTable["userName"] .. dataTable["emailId"] .. "Return Code " .. event.status)
+				end
 			end
         end
-        
-        if(event.status == 301 or event.status == 300) then 
-        	local headers = {}
-			headers["userName"] = answers[1]
-			headers["data"] = answers[2]
-			headers["password"] = answers[3]
-			headers["TypeOfData"] = "register"
-			
-			local body = answers[2]
-		    
-		    --Write to remote service
-			local params = {}
-			params.headers = headers
-			params.body = body
-			print("Registration failed !!! ")
-			local error;
-			if(event.response == 301) then
-				error = "Need to resend data"
-			else 
-				error = "All fields were not filled out"
-			end
-			
-			local alert = native.showAlert( "Sleep eDiary", "Registration failed !!!" .. error, { "OK" }, onCompleteAlertRegister )
-			 y = y+20
-		elseif (event.status == 401) then
-			local alert = native.showAlert( "Sleep eDiary", "User with that username already exists. Use a different username or login", { "OK" },  onCompleteAlertFieldsNotFilled)
-			native.setKeyboardFocus(answers[1])
-		else
-			dataTable = {}
-			dataTable["userName"] = answers[1]
-			dataTable["emailId"] =  answers[2]
-			dataTable["tokenId"] = event.response
+    end
+end
+
+local function authNetworkListener( event )
+   if ( event.isError and not(event.status == 200)  ) then
+        print( "Network error!")
+        local alert = native.showAlert( "Sleep eDiary", "Network Error. Try again later " .. event.status, { "OK" }, onCompleteAlertRegister )
+   else
+      	if (event.status == 200) then
+        	dataTable = {}
+			dataTable["time"] = os.time()
 			saveData()
-			--local userName = display.newText("User registered", 40, y + 40, native.systemFont, 18)
-			if not login then
-				local alert = native.showAlert( "Sleep eDiary", dataTable["userName"] .. "has been registered " , { "OK" }, doNothing )
-			else 
-				onCompleteAlertSuccess(event)
-			end
-
-			if debug then
-
-				print("networkListener>>>>>" .. dataTable["userName"] .. dataTable["emailId"] .. "Return Code " .. event.status)
-			end
-			--scrollView:insert(userName,true);
-			--sleep(5)
-			--storyboard.gotoScene("homePage","fromLeft");
-		--else  
-		--	local alert = native.showAlert( "Sleep eDiary", "Registration failed !!!" .. error, { "OK" }, onCompleteAlertRegister )
-		end
+			local alert = native.showAlert( "Sleep eDiary", "Auth code valid", { "OK" }, onCompleteAlertAuth )
+		elseif (event.status == 301) then 
+       		local alert = native.showAlert( "Sleep eDiary", "Invalid Auth Code", { "OK" }, onCompleteAlertFieldsNotFilled )
+       	end 
 	end
 end
 
@@ -186,14 +201,16 @@ local buttonHandlerSubmit = function( event )
     	login = false
 		local headers = {}
 		-- To Be removed
-		answers[1] = "testUser_6"
-		answers[2] = "user2@mail.com"
-		answers[3] = "password"
-		-- end
-		--answers[1] = answer[1].text
-		--answers[2] = answer[2].text
-		--answers[3] = answer[3].text
-		
+		if debug then
+			answers[1] = "sd_test1"
+			answers[2] = "user2@mail.com"
+			answers[3] = "password"
+		else		
+			answers[1] = answer[1].text
+			answers[2] = answer[2].text
+			answers[3] = answer[3].text
+		end
+
 		headers["userName"] = answers[1]
 		headers["e-mail"] = answers[2]
 		headers["password"] = answers[3]
@@ -224,7 +241,7 @@ local buttonHandlerSubmit = function( event )
 		
 		screenTextReg.x = 40;
 		screenTextReg.y = 20
-		--scrollView:insert( screenTextReg )
+		scrollView:insert( screenTextReg )
 		
 		y = y+screenTextReg.height
 	end
@@ -234,16 +251,18 @@ end
 local buttonHandlerLogin = function( event )
 	local headers = {}
 	login = true
-	-- To Be removed
-	answers[1] = "testUser_5"
-	answers[2] = "user2@mail.com"
-	answers[3] = "password"
-	-- end
-	headers["userName"] = answers[1]
-	headers["e-mail"] = answers[2]
-	headers["password"] = answers[3]
-	headers["TypeOfData"] = "login"
+	if debug then
+			answers[1] = "sd_test1"
+			answers[2] = "user2@mail.com"
+			answers[3] = "password"
+	else		
+		answers[1] = answer[1].text
+		answers[2] = answer[2].text
+		answers[3] = answer[3].text
+	end
 	
+	headers["TypeOfData"] = "login"
+	headers["userName"] = answers[1]
 	local body = answers[2]
     
     --Write to remote service
@@ -270,6 +289,29 @@ local buttonHandlerLogin = function( event )
 	y = y+80
 end
 
+
+local AuthbuttonHandlerSubmit = function( event )
+	local headers = {}
+	login = true
+	if debug then
+		answers[1] = "testAuth"
+	else
+		answers[1] = answer[1].text
+	end
+	
+	headers["TypeOfData"] = "auth"
+	headers["userName"] = dataTableNew["userName"]
+	local body = headers["TypeOfData"].." "..answers[1]
+    
+    --Write to remote service
+	local params = {}
+	params.headers = headers
+	params.body = body
+	print("AuthHandlerSubmit>>>>>" .. body)
+				
+	network.request( "http://54.221.197.247/sleepDiary/Register", "POST", authNetworkListener, params)
+	
+end
 --Create the scene
 function scene:createScene( event )
 	local group = self.view
@@ -278,7 +320,7 @@ function scene:createScene( event )
 	
 	local file = io.open( filePath, "r" )
 
-	local scrollView = widget.newScrollView
+	scrollView = widget.newScrollView
 		{
 			left = 0,
 			top = 0,
@@ -311,19 +353,49 @@ function scene:createScene( event )
 		end
 	
 		io.close( file )
-		
-		local screenText = display.newText( "Welcome,".."\n"..dataTableNew["userName"], 0, 0, native.systemFontBold, 18 )
-		screenText:setTextColor( 0 )
-		screenText.x = display.contentCenterX
-		screenText.y = display.contentCenterY
-		scrollView:insert( screenText )
-	
-		print(dataTableNew["userName"])
-		--sleep(5)
-		storyboard.gotoScene("homePage","fromLeft");
-		
-	else
-				
+		if dataTableNew["userName"] then
+			local screenText = display.newText( "Welcome,".."\n"..dataTableNew["userName"], 0, 0, native.systemFontBold, 18 )
+			screenText:setTextColor( 0 )
+			screenText.x = display.contentCenterX
+			screenText.y = display.contentCenterY
+			scrollView:insert( screenText )
+		end
+		local t = os.date( '*t' )
+		local time = os.time(t)
+		local authTime = dataTableNew["time"]
+		if  not (authTime == nil) and time < (authTime +0 ) then
+			print(dataTableNew["userName"])
+			storyboard.gotoScene("homePage","fromLeft");
+		else 
+			local authCodeText = display.newText( "Enter Authorization Code ", 0, 0, native.systemFontBold, 18 )
+			authCodeText:setTextColor( 0 )
+			authCodeText.x = display.contentCenterX 
+			authCodeText.y = display.contentCenterY + 70
+
+			scrollView:insert( authCodeText )
+
+			answer[1] = native.newTextBox( 0, 0, 240, 30 )
+			answer[1]:setTextColor( 0 )
+			answer[1].isEditable = true
+			answer[1].x = display.contentCenterX 
+			answer[1].y = display.contentCenterY + 105
+			scrollView:insert( answer[1] )
+
+			submitAuthButton  = widget.newButton {
+				id = "submit",
+				label = "SUBMIT",
+				font = "MarkerFelt-Thin",
+				emboss = true,
+				onPress = AuthbuttonHandlerSubmit,
+				align = "centre",
+		    	width = 200,
+		    	height = 60,
+			}
+			submitAuthButton.x = display.contentCenterX 
+			submitAuthButton.y = display.contentCenterY + 150
+			scrollView:insert( submitAuthButton )
+		end
+	else	
 		y = 50
 		local type = {};
 		 --answerString = answerString .. questionnaire.child[i].child[1].value .. "\n";

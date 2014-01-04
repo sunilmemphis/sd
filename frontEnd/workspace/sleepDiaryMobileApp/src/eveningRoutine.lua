@@ -10,14 +10,14 @@ local scene = storyboard.newScene()
 local answerString;
 local answer = {};
 local answerValues = {}
-local filePath = system.pathForFile( "data12.txt", system.DocumentsDirectory )
+local filePath = system.pathForFile( "SDdata3.txt", system.DocumentsDirectory )
 local dataTableNew = {};
 local scrollView
-
+local debug = true
 
 require "sqlite3"
 --Open data.db.  If the file doesn't exist it will be created
-local path = system.pathForFile("data12.db", system.DocumentsDirectory)
+local path = system.pathForFile("dataUser1.db", system.DocumentsDirectory)
 db = sqlite3.open( path )   
 
 local function printDB(db) 
@@ -76,19 +76,24 @@ local buttonHandlerSubmit = function( event )
 	
 	
 	
-	--  for i = 1,table.getn(answer) do
-	--  	if answer[i] then
-	--  		if answer[i].text == '' then
-	--  	 		answerString = '';
-	-- 	 		local alert = native.showAlert( "Sleep eDiary", "Kindly fill in all the fields.", { "OK" }, onCompleteAlertFieldsNotFilled )
-	-- 			native.setKeyboardFocus(answer[i])
-	-- 			return
-	-- 		else
-	--  			answerString = answerString .. answer[i].text .."\n"
-	--  			print("in button : ".. answerString)
-	--  		end
-	--  	end
-	-- end
+	for i = 1,table.getn(answer) do
+	 	if answer[i] then
+	 		if answer[i].text == '' then
+	 			if not debug then
+		 	 		answerString = '';
+			 		local alert = native.showAlert( "Sleep eDiary", "Kindly fill in all the fields.", { "OK" }, onCompleteAlertFieldsNotFilled )
+					native.setKeyboardFocus(answer[i])
+					return
+				else
+					answerString = answerString .. i .. "\n"
+				end
+			else
+	 			answerString = answerString .. answer[i].text .."\n"
+	 			print("in button : ".. answerString)
+	 		end
+	 	end
+	end
+
 	--Create database
 	local tablesetup = [[CREATE TABLE IF NOT EXISTS data (time INTEGER PRIMARY KEY, content,written);]]
 	print(tablesetup)

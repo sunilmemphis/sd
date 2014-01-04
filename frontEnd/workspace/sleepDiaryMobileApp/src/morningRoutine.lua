@@ -10,14 +10,14 @@ local scene = storyboard.newScene()
 local answerString;
 local answer = {};
 local answerValues = {}
-local filePath = system.pathForFile( "data12.txt", system.DocumentsDirectory )
+local filePath = system.pathForFile( "SDdata3.txt", system.DocumentsDirectory )
 local dataTableNew = {};
 local scrollView
 
 
 require "sqlite3"
 --Open data.db.  If the file doesn't exist it will be created
-local path = system.pathForFile("data12.db", system.DocumentsDirectory)
+local path = system.pathForFile("dataUser1.db", system.DocumentsDirectory)
 db = sqlite3.open( path )   
 
 local function printDB(db) 

@@ -181,6 +181,25 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Packet packet = new Packet();
 		//returnErrorMsg(response,packet);
+		
+		if(request.getHeader("TypeOfData") != null && request.getHeader("TypeOfData").equals("auth")) {
+			String body = getBody(request);
+			if(body != null && body.startsWith("auth ")) {
+				String[] data = body.split(" ");
+				if(data.length != 2 && data[1]!="testAuth") {
+					packet.setStatusCode(statusCodes.DATA_RESEND , "Body corrupted");
+					returnErrorMsg(response,packet);
+				} else {
+					userName = request.getHeader("userName");
+					returnStatus(response,packet);
+				}
+			} else {
+				packet.setStatusCode(statusCodes.DATA_RESEND , "Invalid Request");
+				returnErrorMsg(response,packet);
+			}
+		}
+		
+		
 		if(checkHeaders(request,packet) == false ) {
 			logger.error("Headers are wrong");
 			returnErrorMsg(response,packet);

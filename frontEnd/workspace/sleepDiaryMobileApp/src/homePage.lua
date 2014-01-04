@@ -1,5 +1,7 @@
 local storyboard = require ( "storyboard" )
 
+local filePath = system.pathForFile( "SDdata3.txt", system.DocumentsDirectory )
+
 --Create a storyboard scene for this module
 local scene = storyboard.newScene()
 
@@ -102,7 +104,7 @@ function scene:createScene( event )
 
 	local button2Press = function( event )
 		local destDir = system.DocumentsDirectory  -- where the file is stored
-		local results, reason = os.remove( system.pathForFile( "data12.txt", system.DocumentsDirectory ))
+		local results, reason = os.remove( filePath)
 		if results then
 			local alert = native.showAlert( "Sleep eDiary", "Logged out. ", { "OK" }, onCompleteAlert)
    			print( "file removed" )
