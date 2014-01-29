@@ -176,7 +176,7 @@ function scene:createScene( event )
 
 	local tapButton  = widget.newButton {
 		id = "Tap",
-		label = "Tap",
+		label = "Tap here at the end of exhalation",
 		font = "MarkerFelt-Thin",
 		emboss = true,
 		onPress = buttonHandlerTap,

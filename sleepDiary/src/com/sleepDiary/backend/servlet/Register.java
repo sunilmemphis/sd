@@ -18,6 +18,7 @@ import com.sleepDiary.backend.aws.SimpleDB;
 import com.sleepDiary.backend.data.Packet;
 import com.sleepDiary.backend.data.PacketType;
 import com.sleepDiary.backend.data.statusCodes;
+import com.sleepDiary.backend.redcap.RedCapRecord;
 import com.sleepDiary.backend.statusCodes.DBCodes;
 
 /**
@@ -63,6 +64,10 @@ public class Register extends HttpServlet {
 			String password = request.getHeader("password");
 			String email = request.getHeader("e-mail");
 			
+			// TODO:
+			String firstName = request.getHeader("fname");
+			String lastName = request.getHeader("lname");
+			
 			//SimpleDB.createUser(userName, password,email, null , 10);
 			logger.info("In processRequest : Recv userName from "+ userName+ " : " + password);
 			if(userName == null) {
@@ -71,11 +76,18 @@ public class Register extends HttpServlet {
 				return false;
 			} else {
 				if(typeOfData != null && typeOfData.equalsIgnoreCase("register")) {
-					DBCodes dbcodeCreateUser = SimpleDB.createUser(userName, password,email, null , 10);
+					if(firstName == null || lastName == null || email == null) {
+						packet.setStatusCode(statusCodes.DATA_RESEND , "Data is Corrupted");
+						logger.info("In processRequest: First or Last Name is not filled in ");
+						return false;
+					}
+					
+					RedCapRecord userDetails = new RedCapRecord(userName, firstName, lastName, email);
+					DBCodes dbcodeCreateUser = SimpleDB.createUser(userName, password,email, null , 10, userDetails);
+					
 					if(dbcodeCreateUser == DBCodes.USER_ADDED) {
 						packet.setStatusCode(statusCodes.DATA_ADDED , "User was added");
 						logger.info("In processRequest : UserName "+ userName + " added to AWS");
-						
 						return true;
 					} else if (dbcodeCreateUser == DBCodes.USER_EXISTS){
 						packet.setStatusCode(statusCodes.USERNAME_INVALID , "User already exists");
@@ -139,8 +151,10 @@ public class Register extends HttpServlet {
 
 		logger.error("Sending error Code");
 		try {
-			
-			int statusCode = packet.getStatusCode().ordinal();
+			//Always assume the worse
+			int statusCode = 500;
+			if(packet != null && packet.getStatusCode() != null)
+				statusCode = packet.getStatusCode().ordinal();
 			
 			response.setStatus(statusCode);
 			
@@ -186,7 +200,7 @@ public class Register extends HttpServlet {
 			String body = getBody(request);
 			if(body != null && body.startsWith("auth ")) {
 				String[] data = body.split(" ");
-				if(data.length != 2 && data[1]!="testAuth") {
+				if(data.length != 2 && data[1]!=SimpleDB.getAuthCode()) {
 					packet.setStatusCode(statusCodes.DATA_RESEND , "Body corrupted");
 					returnErrorMsg(response,packet);
 				} else {

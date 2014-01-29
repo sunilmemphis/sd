@@ -31,6 +31,8 @@ import com.amazonaws.services.simpledb.model.ReplaceableAttribute;
 import com.amazonaws.services.simpledb.model.ReplaceableItem;
 import com.amazonaws.services.simpledb.model.SelectRequest;
 import com.sleepDiary.backend.data.Questionnaire;
+import com.sleepDiary.backend.redcap.RedCap;
+import com.sleepDiary.backend.redcap.RedCapRecord;
 import com.sleepDiary.backend.statusCodes.DBCodes;
 // AWS Support Classes
 
@@ -146,7 +148,7 @@ public class SimpleDB {
         } 
 	}
 	
-	public static DBCodes createUser(String userName, String password,String email, String tokenId,  int noOfCharactersInToken) {
+	public static DBCodes createUser(String userName, String password,String email, String tokenId,  int noOfCharactersInToken, RedCapRecord userDetails) {
 		logger.info("Creating user :" + userName);
 		
 		if(userName == null || password == null || email == null) {
@@ -191,6 +193,9 @@ public class SimpleDB {
 			// Put data into a domain
             logger.info("Putting data into " + userDomain + " domain."+userName+"\n");
             sdb.batchPutAttributes(new BatchPutAttributesRequest(userDomain, entity));
+            if(!RedCap.importData(userDetails)) {
+            	return DBCodes.USER_RED_CAP_ERROR;
+            }
 
 		} catch (AmazonServiceException ase ) {
 			printException(ase);
@@ -205,24 +210,40 @@ public class SimpleDB {
 	}
 	
 	public static DBCodes addTap(String userName, long time, String tapNumber) {
+		
 		logger.info("Adding tap number "+tapNumber+" to " + userName);
 		
 		
 		try {
-			init(tapDomain);
+			//init(tapDomain);
 		} catch (Exception e) {
 			logger.error(e.toString());
 			return DBCodes.DOMAIN_CREATION_FAILED;
 		}
+		/*
+		 * String tzid = "EST";
+	    TimeZone tz = TimeZone.getTimeZone(tzid);
+	    long utc = System.currentTimeMillis();
+	    
+	    Date d = new Date(utc);
+	    DateFormat format = new SimpleDateFormat("M/dd/yyyy hh:mm a z");
+	    format.setTimeZone(tz);
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+		
+		
 		String tzid = "EST";
 	    TimeZone tz = TimeZone.getTimeZone(tzid);
+	    long utc = System.currentTimeMillis();
 	    
-	    
-	    Date d = new Date(time);
+	    Date d = new Date(utc);
 	    DateFormat format = new SimpleDateFormat("M/dd/yyyy hh:mm a z");
 	    format.setTimeZone(tz);
 	 
-		
+	    logger.info("Date computed");
 		List<ReplaceableItem> entity = new ArrayList<ReplaceableItem>();
 		entity.add(new ReplaceableItem(userName+time).withAttributes(
 	                new ReplaceableAttribute("userName", userName, true),
@@ -230,7 +251,7 @@ public class SimpleDB {
 	                new ReplaceableAttribute("DateTime", Long.toString(time), true),
 	                new ReplaceableAttribute("tapNumber", tapNumber, true))
 	          );
-		
+		 logger.info("Built packet");
 		try {
 			// Put data into a domain
             logger.info("Putting tap details  into " + tapDomain + " domain."+userName+" : "+tapNumber+"\n");
@@ -244,7 +265,7 @@ public class SimpleDB {
             return DBCodes.TAP_NOT_ADDED;
         } 
 
-		
+		logger.info("Added tap number "+tapNumber+" to " + userName);
 		return DBCodes.TAP_ADDED;
 	}
 	
@@ -516,6 +537,11 @@ public class SimpleDB {
                  + "a serious internal problem while trying to communicate with SimpleDB, "
                  + "such as not being able to access the network.");
          logger.error("Error Message: " + ace.getMessage());
+	}
+
+	public static String getAuthCode() {
+		// TODO Auto-generated method stub
+		return "testAuth";
 	}
 	
 }

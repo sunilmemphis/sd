@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;pshbtnLogin&apos; in &apos;com.uphs.sleepDiary.client.Login.onModuleLoad()&apos; to &apos;loginButton&apos;&#x0D;&#x0A;- Original project: &apos;sleepDiaryv3&apos;&#x0D;&#x0A;- Original element: &apos;com.uphs.sleepDiary.client.Login.onModuleLoad().pshbtnLogin&apos;&#x0D;&#x0A;- Renamed element: &apos;pshbtnLogin&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;pshbtnLogin&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.uphs.sleepDiary.client{Login.java[Login~onModuleLoad@pshbtnLogin!2504!2552!2515!2525!QPushButton;!0!false" name="loginButton" references="true" stamp="1387887003182" version="1.0"/>
+</session>

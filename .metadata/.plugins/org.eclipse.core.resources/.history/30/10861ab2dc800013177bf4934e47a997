@@ -1,0 +1,17 @@
+import java.util.HashMap;
+
+
+public class RedCapRecord {
+	
+	
+	HashMap<String,String> recordAttributes;
+	
+	public RedCapRecord(String userName, String firstName, String lastName, String emaidID) {
+		recordAttributes = new HashMap<String,String>();
+		recordAttributes.put("record_id",userName);
+		
+		recordId = userName;
+		
+		
+	}
+}

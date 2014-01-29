@@ -7,6 +7,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import com.sleepDiary.backend.aws.SimpleDB;
 import com.sleepDiary.backend.data.Packet;
 import com.sleepDiary.backend.data.Questionnaire;
+import com.sleepDiary.backend.redcap.RedCapRecord;
 import com.sleepDiary.backend.statusCodes.DBCodes;
 
 import junit.framework.TestCase;
@@ -14,7 +15,7 @@ import junit.framework.TestCase;
 public class TestSimpleDB extends TestCase {
 	
 	SimpleDB sdb;
-
+	
 	protected void setUp() throws Exception {
 		super.setUp();
 		sdb = new SimpleDB();
@@ -29,34 +30,40 @@ public class TestSimpleDB extends TestCase {
 	}
 
 	public void testUserExists() {
-		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
-		assertTrue(SimpleDB.userExists("user1") == DBCodes.USER_EXISTS);
+		RedCapRecord userDetails = new RedCapRecord("user122","user1_firstNAme","user1_lastName", "user1@mail.com");
+		SimpleDB.createUser("user122", "pass1","usr@mail.com", "rte2", 0,userDetails);
+		assertTrue(SimpleDB.userExists("user122") == DBCodes.USER_EXISTS);
 	}
 
 	public void testTokenIdExists() {
-		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
+		RedCapRecord userDetails = new RedCapRecord("user1","user1_firstNAme","user1_lastName", "user1@mail.com");
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0,userDetails);
 		assertTrue(SimpleDB.tokenIdExists("rte") == DBCodes.USER_EXISTS);
 		
 	}
 
 	public void testIsUniqueTokenId() {
-		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
+		RedCapRecord userDetails = new RedCapRecord("user1","user1_firstNAme","user1_lastName", "user1@mail.com");
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0,userDetails);
 		assertTrue(SimpleDB.isUniqueTokenId("rte") == false);
 		assertTrue(SimpleDB.isUniqueTokenId("thisIsNotUsedAsAToken"));
 		
 	}
 
 	public void testCreateUser() {
-		
-		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
+		RedCapRecord userDetails = new RedCapRecord("user1","user1_firstNAme","user1_lastName", "user1@mail.com");
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0,userDetails);
 		SimpleDB.testPrintData();
 		
-		assertTrue(SimpleDB.createUser("user1", "pass1","usr@mail.com", null, 0) == DBCodes.USER_EXISTS);
-		
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1","usr@mail.com", null, 0) == DBCodes.USER_ADDED);
+		assertTrue(SimpleDB.createUser("user1", "pass1","usr@mail.com", null, 0,userDetails) == DBCodes.USER_EXISTS);
+		String userName = "user"+RandomStringUtils.randomAlphanumeric(5);
+		userDetails = new RedCapRecord(userName,userName+"_firstNAme",userName+"lastName", userName+"user1@mail.com");
+		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1","usr@mail.com", null, 0,userDetails) == DBCodes.USER_ADDED);
 		String tokenId = "rte";
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1","usr@mail.com", tokenId+RandomStringUtils.randomAlphanumeric(5), 10) == DBCodes.USER_ADDED);
-		assertTrue(SimpleDB.createUser("user"+RandomStringUtils.randomAlphanumeric(5), "pass1","usr@mail.com", tokenId, 10) == DBCodes.USER_EXISTS);
+		userName = "user"+RandomStringUtils.randomAlphanumeric(5);
+		userDetails = new RedCapRecord(userName,userName+"_firstNAme",userName+"lastName", userName+"user1@mail.com");
+		assertTrue(SimpleDB.createUser(userName, "pass1","usr@mail.com", tokenId+RandomStringUtils.randomAlphanumeric(5), 10,userDetails) == DBCodes.USER_ADDED);
+		assertTrue(SimpleDB.createUser(userName, "pass1","usr@mail.com", tokenId, 10,userDetails) == DBCodes.USER_EXISTS);
 		
 		SimpleDB.testPrintData();
 	}
@@ -70,7 +77,8 @@ public class TestSimpleDB extends TestCase {
 	}
 	
 	public void testpasswordValid() {
-		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
+		RedCapRecord userDetails = new RedCapRecord("user1","user1_firstNAme","user1_lastName", "user1@mail.com");
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0,userDetails);
 		SimpleDB.testPrintData();
 		assertTrue(SimpleDB.passwordValid("user1", "pass1") );
 		assertFalse(SimpleDB.passwordValid("user1", "pass12") );
@@ -84,7 +92,9 @@ public class TestSimpleDB extends TestCase {
 	}
 	
 	public void testgetToken() {
-		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
+		RedCapRecord userDetails = new RedCapRecord("user1","user1_firstNAme","user1_lastName", "user1@mail.com");
+		SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0,userDetails);
+		//SimpleDB.createUser("user1", "pass1","usr@mail.com", "rte", 0);
 		SimpleDB.testPrintData();
 		System.out.println(SimpleDB.getToken("user1"));
 		assertTrue(SimpleDB.getToken("user1").equals("rte"));

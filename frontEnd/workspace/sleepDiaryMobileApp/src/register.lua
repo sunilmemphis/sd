@@ -158,6 +158,9 @@ local function networkListener( event )
 				dataTable["userName"] = answers[1]
 				dataTable["emailId"] =  answers[2]
 				dataTable["tokenId"] = event.response
+				dataTable["email"] = answers[3]
+				dataTable["fname"] = answers[4]
+				dataTable["lname"] = answers[5]
 				local t = os.date( '*t' )
 				dataTable["time"] = os.time(t)
 				saveData()
@@ -202,18 +205,24 @@ local buttonHandlerSubmit = function( event )
 		local headers = {}
 		-- To Be removed
 		if debug then
-			answers[1] = "sd_test1"
+			answers[1] = "sd_test_2"
 			answers[2] = "user2@mail.com"
 			answers[3] = "password"
+			answers[4] = "sd_test_firstName"
+			answers[5] = "sd_test_lastName"
 		else		
 			answers[1] = answer[1].text
 			answers[2] = answer[2].text
 			answers[3] = answer[3].text
+			answers[2] = answer[4].text
+			answers[3] = answer[5].text
 		end
 
 		headers["userName"] = answers[1]
 		headers["e-mail"] = answers[2]
 		headers["password"] = answers[3]
+		headers["fname"] = answers[4]
+		headers["lname"] = answers[5]
 		headers["TypeOfData"] = "register"
 		
 		local body = answers[2]
@@ -451,9 +460,73 @@ function scene:createScene( event )
 		 answer[3].fontSize = 14
 		 scrollView:insert(answer[3],true)
 		 y = y+30
+
+
+		 --first Name
+		 local screenText = Wrapper:newParagraph({
+			--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
+			text = "First Name",
+			width = 240,
+			fontSize = 18,			
+			lineSpace = 2,
+			alignment  = "left",
+			fontSizeMin = 8,
+			fontSizeMax = 12,
+			incrementSize = 2
+		})
+		
+		screenText.x = 40;
+		screenText.y = y;
+		scrollView:insert( screenText )
+		y = y+screenText.height
+		y = y+10
+		 
+		answer[4] = native.newTextBox( 40, y + 20, 240, 30 )
+		answer[4].hasBackground = true
+		answer[4].size = 16
+		answer[4].isEditable = true
+		answer[4].fontSize = 14
+		scrollView:insert(answer[4],true)
+		 
+		y = y+30
+
+
+
+
+
+		 -- Last Name
+		 local screenText = Wrapper:newParagraph({
+			--text = "Wrapper Class Sample-Text\n\nCorona's framework dramatically increase productivity. \n\nTasks like animating objects in OpenGL or creating user-interface widgets take only one line of code, and changes are instantly viewable in the Corona Simulator. \n\nYou can rapidly test without lengthy build times.",
+			text = "Last Name",
+			width = 240,
+			fontSize = 18,			
+			lineSpace = 2,
+			alignment  = "left",
+			fontSizeMin = 8,
+			fontSizeMax = 12,
+			incrementSize = 2
+		})
+		
+		screenText.x = 40;
+		screenText.y = y;
+		scrollView:insert( screenText )
+		y = y+screenText.height
+		y = y+10
+		 
+		answer[5] = native.newTextBox( 40, y + 20, 240, 30 )
+		answer[5].hasBackground = true
+		answer[5].size = 16
+		answer[5].isEditable = true
+		answer[5].fontSize = 14
+		scrollView:insert(answer[5],true)
+		 
+		y = y+30
+
+
+
 		 
 		 local screenText = Wrapper:newParagraph({
-			text = "Enter doctor's e-mail",
+			text = "E-mail address ",
 			width = 240,
 			fontSize = 18,			
 			lineSpace = 2,

@@ -255,8 +255,8 @@ public class SimpleDB {
 
                   if(isTap) {
                   
-	                  
-					noOfItemsPreChosen = 3;
+                	reshuffleOrder.add(cols.indexOf("tapNumber"));  
+					noOfItemsPreChosen = 4;
 				} else {
 					reshuffleOrder.add(cols.indexOf("Routine"));
 				}

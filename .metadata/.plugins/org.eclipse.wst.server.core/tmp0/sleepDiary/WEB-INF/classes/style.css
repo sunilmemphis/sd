@@ -1,0 +1,133 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%; 
+	margin-left: auto;
+  	margin-right: auto;
+  	
+	background-image:url("http://wallpink.com/wp-content/uploads/2013/06/Free-Background-Images-Css.jpg")
+
+}
+
+.content {
+	min-height: 100%;
+	position: relative;
+	overflow: auto;
+	z-index: 0; 
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.background {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	
+
+}
+
+.top_block {
+	width: 100%;
+	display: block; 
+}
+
+.bottom_block {
+	position: absolute;
+	width: 100%;
+	display: block;
+	bottom: 0; 
+}
+
+.left_block {
+	display: block;
+	float: left; 
+}
+
+.right_block {
+	display: block;
+	float: right; 
+}
+
+.center_block {
+	display: block;
+	width: auto; 
+}
+
+.header {
+	width: 100%;
+	height: 120px;
+	background-color: #00000;
+	text-shadow: 4px 4px 1px rgba(150, 150, 150, 0.63);
+	text-align:center;
+	font-family:"Times New Roman", Times, serif;
+	font-size:3.5em;
+	font-weight:bold;
+	color:white;
+	
+}
+
+.footer {
+	width: 100%;
+	height: 1px;
+	background-color: #FCFCFC;
+}
+
+form {
+    width: 250px;
+    padding: 20px;
+    border: 1px solid #270644;
+    vertical-align: middle;
+    margin-left: auto;
+  	margin-right: auto;
+  	top:10%; 
+    /*** Adding in CSS3 ***/
+ 	color:#fcfcfc;
+    /*** Rounded Corners ***/
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+ 	background: #000000
+    /*** Background Gradient - 2 declarations one for Firefox and one for Webkit ***/
+    background:  -moz-linear-gradient(19% 75% 90deg, #D1CDD4, #2B2A2B);
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#2B2A2B), to(#D1CDD4));
+	 
+    /*** Shadow behind the box ***/
+    -moz-box-shadow:0px -5px 300px #FCFCFC;
+    -webkit-box-shadow:0px -5px 300px #FCFCFC;
+}
+
+
+
+input {
+    width: 230px;
+    background: #FCFCFC;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-top: 1px solid #ad64e0;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+input:hover {
+    -webkit-box-shadow: 0px 0px 4px #000;
+    background: #D1CDD4;
+    color: #000003;
+}
+
+input.submit {
+    width: 200px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: #000 1px 1px;
+    border-top: 1px solid #ad64e0;
+    margin-top: 10px;
+ 
+    /*** Adding CSS3 Gradients ***/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D1CDD4), to(#5C58DB));   
+    background:  -moz-linear-gradient(19% 75% 90deg,#5C58DB, #D1CDD4);   
+}
+

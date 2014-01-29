@@ -16,12 +16,14 @@ import java.io.InputStreamReader;
 
 
 
+
 //Servlet Support
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 
@@ -198,43 +200,54 @@ public class Dispatcher extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Packet packet = new Packet();
-		//returnErrorMsg(response,packet);
-		logger.info("In Post");
-		logger.info("Number of headers " + response.getHeaderNames().size());
-		for(String headerName: response.getHeaderNames()) {
-			logger.info("GOT " + headerName + " having " +response.getHeader(headerName) );
-		}
+//		Packet packet = new Packet();
+//		//returnErrorMsg(response,packet);
+//		logger.info("In Post");
+//		logger.info("Number of headers " + response.getHeaderNames().size());
+//		for(String headerName: response.getHeaderNames()) {
+//			logger.info("GOT " + headerName + " having " +response.getHeader(headerName) );
+//		}
+//		
+//		String body = getBody(request);
+//		logger.info("REcv body : " + body);
+//		String[] details = body.split(" ");
+//		packet.setData(body);
+//		if(details.length == 4 && details[0].equals("Tapdata")) {
+//			
+//			String userName = details[1];
+//			String tapTime = details[2];
+//			String tapNumber = details[3];
+//			if(SimpleDB.addTap(userName, new Long(tapTime), tapNumber) == DBCodes.TAP_ADDED) {
+//				packet.setStatusCode(statusCodes.DATA_ADDED, "Data was added");
+//				returnStatus(response,packet);
+//			} else {
+//				packet.setStatusCode(statusCodes.DATA_RESEND, "Data was not added");
+//				returnErrorMsg(response,packet);
+//			}
+//			
+//		} else {
+//			if(checkHeaders(request,packet) == false ) {
+//				logger.error("Headers are not in place ");
+//				returnErrorMsg(response,packet);
+//			} else {
+//				if (processRequest(request,response,packet)) {
+//					returnStatus(response,packet);
+//				} else {
+//					logger.error("Processing requests failed ");
+//					returnErrorMsg(response,packet);
+//				}
+//			}
+//		}
 		
-		String body = getBody(request);
-		logger.info("REcv body : " + body);
-		String[] details = body.split(" ");
-		packet.setData(body);
-		if(details.length == 4 && details[0].equals("Tapdata")) {
-			
-			String userName = details[1];
-			String tapTime = details[2];
-			String tapNumber = details[3];
-			if(SimpleDB.addTap(userName, new Long(tapTime), tapNumber) == DBCodes.TAP_ADDED) {
-				packet.setStatusCode(statusCodes.DATA_ADDED, "Data was added");
-				returnStatus(response,packet);
-			} else {
-				packet.setStatusCode(statusCodes.DATA_RESEND, "Data was not added");
-				returnErrorMsg(response,packet);
-			}
-			
-		} else {
-			if(checkHeaders(request,packet) == false ) {
-				logger.error("Headers are not in place ");
-				returnErrorMsg(response,packet);
-			} else {
-				if (processRequest(request,response,packet)) {
-					returnStatus(response,packet);
-				} else {
-					logger.error("Processing requests failed ");
-					returnErrorMsg(response,packet);
-				}
-			}
+		
+		worker newWorker = new worker(request, response);
+		newWorker.start();
+	
+		try {
+			newWorker.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}
